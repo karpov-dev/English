@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Coursework.Views.MainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:res="clr-namespace:Coursework.Properties"
+             xmlns:local="clr-namespace:Coursework.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Background="AntiqueWhite">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="{x:Static res:Resources.LearningButton}"/>
+            <Button Grid.Column="1" Content="{x:Static res:Resources.SelectedCollectionsButton}"/>
+            <Button Grid.Column="2" Content="{x:Static res:Resources.GameModeButton}"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="AliceBlue">
+            <TextBlock Text="{x:Static res:Resources.Information}" FontSize="25"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Background="Aquamarine" Grid.ColumnSpan="2">
+            <TextBlock Text="{x:Static res:Resources.Collections}" FontSize="25"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="{x:Static res:Resources.AddCollectionButton}" Margin="5"/>
+                <Button Grid.Column="1" Content="{x:Static res:Resources.DeleteSelectedCollections}" Margin="5"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="3" Background="Bisque">
+            <TextBlock Text="{x:Static res:Resources.ShotStatistics}" FontSize="25"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
