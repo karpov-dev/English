@@ -1,9 +1,9 @@
-﻿using System.Runtime.CompilerServices;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-namespace Coursework.Models.Classes.NotifyPropertyEvent
+namespace Coursework.Models.Classes.Events
 {
-    class NotifyPropertyChangedEvent : INotifyPropertyChanged
+    class Event : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

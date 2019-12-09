@@ -1,22 +1,26 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Coursework.Properties;
-using Coursework.Models.Classes.NotifyPropertyEvent;
 using Coursework.Models.Classes.Commands;
+using Coursework.ViewModel.MangerOfNavigate;
 
-namespace Coursework.ViewModels.Base
+
+namespace Coursework.ViewModel.NavigateBase
 {
-    abstract class BaseViewModel : NotifyPropertyChangedEvent
+    class NavigateVM : EventVM
     {
         private RelayCommand _goToNextWindowCommand;
         private RelayCommand _exitCommand;
         public string ViewModelName { get; }
-        public ViewModelsManager Manager { get; }
+        public NavigateManager Manager { get; }
 
-        public BaseViewModel(string viewModelName, ViewModelsManager manager)
+        public NavigateVM(string viewModelName, NavigateManager navigateManager)
         {
             ViewModelName = viewModelName;
-            Manager = manager;
+            Manager = navigateManager;
+        }
+        public NavigateVM(NavigateManager navigateManager)
+        {
+            Manager = navigateManager;
         }
 
         public object GoToWindow
@@ -58,6 +62,5 @@ namespace Coursework.ViewModels.Base
                     }));
             }
         }
-
     }
 }

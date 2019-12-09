@@ -1,13 +1,20 @@
-﻿using Coursework.Models.Classes.NotifyPropertyEvent;
+﻿using System;
+using Coursework.Models.Classes.Events;
 
-namespace Coursework.Models.Classes.User
+namespace Coursework.Models.Classes.User.Statistics
 {
-    class StatisticsForTheDay : NotifyPropertyChangedEvent
+    class StatisticsForTheDay : Event
     {
         private int _learnedWords;
         private int _addedWords;
         private int _dayExperience;
 
+        public StatisticsForTheDay(DateTime currentDate)
+        {
+            Date = currentDate;
+        }
+
+        public DateTime Date { get;}
         public int LearnedWords
         {
             get => _learnedWords;

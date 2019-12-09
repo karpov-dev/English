@@ -1,59 +1,23 @@
-﻿using Coursework.Models.Classes.User;
-using Coursework.Models.Classes.NotifyPropertyEvent;
-using System.Collections.ObjectModel;
+﻿using Coursework.Models.Classes.User.Statistics;
+using Coursework.Models.Classes.User.Achievements;
+using Coursework.Models.Classes.User.WordCollections;
+using System.Collections.Generic;
 
 namespace Coursework.Models
 {
-    class User : NotifyPropertyChangedEvent
+    class User
     {
-        private string _name;
-        private UserStatistics _statistics;
-        private Achievements _achievements;
-        private ObservableCollection<OneCollection> _wordCollections;
+        public string Name { get; set; }
+        public UserStatistics Statistics;
+        public Achievements Achievements;
+        public WordCollection Collections;
 
 
         public User()
         {
-            _statistics = new UserStatistics();
-            _achievements = new Achievements();
-            _wordCollections = new ObservableCollection<OneCollection>();
-        }
-
-
-        public string Name
-        {
-            get => _name;
-            set
-            {
-                _name = value;
-                OnPropertyChanged("Name");
-            }
-        }
-        public ObservableCollection<OneCollection> WordCollections
-        {
-            get => _wordCollections;
-            set
-            {
-                _wordCollections = value;
-                OnPropertyChanged("WordCollections");
-            }
-        }
-
-
-        public void AddCollection(OneCollection addedCollection)
-        {
-            _wordCollections.Add(addedCollection);
-        }
-        public void DeleteCollection(OneCollection deletedCollection)
-        {
-            _wordCollections.Remove(deletedCollection);
-        }
-        public void DeleteCollection(int[] collectionsIndexes)
-        {
-            for (int i = 0; i < collectionsIndexes.Length; i++)
-            {
-                _wordCollections.RemoveAt(collectionsIndexes[i]);
-            }
+            Statistics = new UserStatistics();
+            Achievements = new Achievements();
+            Collections = new WordCollection();
         }
     }
 }

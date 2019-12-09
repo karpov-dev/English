@@ -1,16 +1,16 @@
-﻿using Coursework.ViewModels.Base;
-using Coursework.ViewModels.ViewModels;
+﻿using Coursework.ViewModel.NavigateBase;
+using Coursework.ViewModel.ViewModels.PagesVM;
 using Coursework.Models;
 
-namespace Coursework.ViewModels
+namespace Coursework.ViewModel.MangerOfNavigate
 {
-    class ViewModelsManager : BaseViewModelManager
+    class NavigateManager : ManagerVM
     {
         public User CurrentUser;
-        public ViewModelsManager()
+        public NavigateManager()
         {
-            AddViewModel(new MainPageVM("MainPageVM", this));
             CurrentUser = new User();
+            AddViewModel(new MainPageVM("MainPageVM", this));
         }
 
         public object CurrentViewModel

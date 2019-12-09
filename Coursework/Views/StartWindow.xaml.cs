@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Coursework.ViewModels;
+using Coursework.ViewModel.MangerOfNavigate;
 
 namespace Coursework.Views
 {
@@ -11,7 +11,7 @@ namespace Coursework.Views
         public StartWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModelsManager();
+            DataContext = new NavigateManager();
         }
     }
 }

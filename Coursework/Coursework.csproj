@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,22 +57,30 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Classes\Commands\RelayCommand.cs" />
-    <Compile Include="Models\Classes\NotifyPropertyEvent\NotifyPropertyChangedEvent.cs" />
-    <Compile Include="Models\Classes\User\Achievements.cs" />
-    <Compile Include="Models\Classes\User\OneAchievement.cs" />
-    <Compile Include="Models\Classes\User\OneCollection.cs" />
-    <Compile Include="Models\Classes\User\StatisticsForTheDay.cs" />
-    <Compile Include="Models\Classes\User\UserStatistics.cs" />
+    <Compile Include="Models\Classes\Events\Event.cs" />
+    <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
+    <Compile Include="Models\Classes\User\Achievements\OneAchievement.cs" />
+    <Compile Include="Models\Classes\User\WordCollections\OneCollection.cs" />
+    <Compile Include="Models\Classes\User\Statistics\StatisticsForTheDay.cs" />
+    <Compile Include="Models\Classes\User\Statistics\UserStatistics.cs" />
+    <Compile Include="Models\Classes\User\WordCollections\WordPair\OneWordPair.cs" />
+    <Compile Include="Models\Classes\User\WordCollections\WordCollection.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Base\BaseViewModel.cs" />
-    <Compile Include="ViewModels\Base\BaseViewModelManager.cs" />
-    <Compile Include="ViewModels\ViewModelsManager.cs" />
-    <Compile Include="ViewModels\ViewModels\MainPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
+    <Compile Include="ViewModel\MangerOfNavigate\NavigateManager.cs" />
+    <Compile Include="ViewModel\NavigateBase\EventVM.cs" />
+    <Compile Include="ViewModel\NavigateBase\ManagerVM.cs" />
+    <Compile Include="ViewModel\NavigateBase\NavigateVM.cs" />
+    <Compile Include="Views\AddCollection\AddCollectionView.xaml.cs">
+      <DependentUpon>AddCollectionView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +91,10 @@
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AddCollection\AddCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

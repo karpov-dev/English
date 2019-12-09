@@ -3,15 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:VM="clr-namespace:Coursework.ViewModels.ViewModels"
+        xmlns:page="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM"
+        xmlns:AddNewCollection="clr-namespace:Coursework.Views.AddCollection"
         xmlns:local="clr-namespace:Coursework.Views"
         mc:Ignorable="d"
-        Title="EN 0.0.1" WindowState="Maximized" WindowStyle="ToolWindow">
+        Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type VM:MainPageVM}">
+        <DataTemplate DataType="{x:Type page:MainPageVM}">
             <local:MainPage/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type page:AddingNewCollectionPageVM}">
+            <AddNewCollection:AddCollectionView/>
+        </DataTemplate>        
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 
