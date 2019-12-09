@@ -60,6 +60,7 @@
     <Compile Include="Models\Classes\Events\Event.cs" />
     <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
     <Compile Include="Models\Classes\User\Achievements\OneAchievement.cs" />
+    <Compile Include="Models\Classes\User\Information\UserInformation.cs" />
     <Compile Include="Models\Classes\User\WordCollections\OneCollection.cs" />
     <Compile Include="Models\Classes\User\Statistics\StatisticsForTheDay.cs" />
     <Compile Include="Models\Classes\User\Statistics\UserStatistics.cs" />
@@ -72,6 +73,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
     <Compile Include="ViewModel\MangerOfNavigate\NavigateManager.cs" />
@@ -80,6 +83,12 @@
     <Compile Include="ViewModel\NavigateBase\NavigateVM.cs" />
     <Compile Include="Views\AddCollection\AddCollectionView.xaml.cs">
       <DependentUpon>AddCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditCollection\EditCollection.xaml.cs">
+      <DependentUpon>EditCollection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HelloPage\HelloPage.xaml.cs">
+      <DependentUpon>HelloPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -92,6 +101,14 @@
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddCollection\AddCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditCollection\EditCollection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HelloPage\HelloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,9 +138,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Elements\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

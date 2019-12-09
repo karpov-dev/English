@@ -1,7 +1,9 @@
-﻿using Coursework.Models.Classes.Events;
+﻿using System;
+using Coursework.Models.Classes.Events;
 
 namespace Coursework.Models.Classes.User.WordCollections.WordPair
 {
+    [Serializable]
     class OneWordPair : Event
     {
         private string _word;

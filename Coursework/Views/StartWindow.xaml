@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:page="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM"
         xmlns:AddNewCollection="clr-namespace:Coursework.Views.AddCollection"
+        xmlns:HelloPage="clr-namespace:Coursework.Views.HelloPage"
+        xmlns:EditPage="clr-namespace:Coursework.Views.EditCollection"
         xmlns:local="clr-namespace:Coursework.Views"
         mc:Ignorable="d"
         Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
@@ -16,7 +18,16 @@
 
         <DataTemplate DataType="{x:Type page:AddingNewCollectionPageVM}">
             <AddNewCollection:AddCollectionView/>
-        </DataTemplate>        
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type page:HelloPageVM}">
+            <HelloPage:HelloPage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type page:EditCollectionPageVM}">
+            <EditPage:EditCollection/>
+        </DataTemplate>
+        
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 

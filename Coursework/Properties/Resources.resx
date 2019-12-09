@@ -135,6 +135,9 @@
   <data name="AddPair" xml:space="preserve">
     <value>Добавить связку</value>
   </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Название приложения </value>
+  </data>
   <data name="BasicInformationTextBlok" xml:space="preserve">
     <value>Основная информация</value>
   </data>
@@ -156,8 +159,17 @@
   <data name="CreatingNewUser" xml:space="preserve">
     <value>Расскажите о себе </value>
   </data>
+  <data name="DeleteCollection" xml:space="preserve">
+    <value>Удалить подборку</value>
+  </data>
   <data name="DeleteSelectedCollections" xml:space="preserve">
     <value>Удалить выбранные подборки</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="EditCollection" xml:space="preserve">
+    <value>Редактирование подборки</value>
   </data>
   <data name="EmptyFieldsError" xml:space="preserve">
     <value>У вас остались незаполненные поля</value>
@@ -171,6 +183,12 @@
   <data name="GameModeButton" xml:space="preserve">
     <value>Игровой режим</value>
   </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Привет</value>
+  </data>
+  <data name="HelloFriend" xml:space="preserve">
+    <value>Привет, друг</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Информация</value>
   </data>
@@ -180,11 +198,17 @@
   <data name="More" xml:space="preserve">
     <value>Подробнее</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Далее</value>
+  </data>
   <data name="RemovePair" xml:space="preserve">
     <value>Удалить связку</value>
   </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Сохранить</value>
+  </data>
+  <data name="SayYourName" xml:space="preserve">
+    <value>Скажи как тебя зовут</value>
   </data>
   <data name="SelectedCollectionsButton" xml:space="preserve">
     <value>Учить выбранные подборки</value>
@@ -971,6 +995,9 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Предупреждение</value>
+  </data>
+  <data name="WhatIsYourName" xml:space="preserve">
+    <value>Привет, как тебя зовут? </value>
   </data>
   <data name="Word" xml:space="preserve">
     <value>Слово</value>

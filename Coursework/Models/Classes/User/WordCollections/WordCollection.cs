@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System;
 
 namespace Coursework.Models.Classes.User.WordCollections
 {
+    [Serializable]
     class WordCollection
     {
         private ObservableCollection<OneCollection> _collections;

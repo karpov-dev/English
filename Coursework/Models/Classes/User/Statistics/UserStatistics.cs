@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Coursework.Models.Classes.User.Statistics
 {
+    [Serializable]
     class UserStatistics
     {
         private ObservableCollection<StatisticsForTheDay> _daysStatistics;

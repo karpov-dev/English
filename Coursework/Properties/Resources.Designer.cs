@@ -115,6 +115,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Название приложения .
+        /// </summary>
+        public static string ApplicationTitle {
+            get {
+                return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Основная информация.
         /// </summary>
         public static string BasicInformationTextBlok {
@@ -178,11 +187,38 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить подборку.
+        /// </summary>
+        public static string DeleteCollection {
+            get {
+                return ResourceManager.GetString("DeleteCollection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить выбранные подборки.
         /// </summary>
         public static string DeleteSelectedCollections {
             get {
                 return ResourceManager.GetString("DeleteSelectedCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактирование подборки.
+        /// </summary>
+        public static string EditCollection {
+            get {
+                return ResourceManager.GetString("EditCollection", resourceCulture);
             }
         }
         
@@ -223,6 +259,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Привет.
+        /// </summary>
+        public static string Hello {
+            get {
+                return ResourceManager.GetString("Hello", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Привет, друг.
+        /// </summary>
+        public static string HelloFriend {
+            get {
+                return ResourceManager.GetString("HelloFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Информация.
         /// </summary>
         public static string Information {
@@ -250,6 +304,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Далее.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить связку.
         /// </summary>
         public static string RemovePair {
@@ -264,6 +327,15 @@ namespace Coursework.Properties {
         public static string SaveButton {
             get {
                 return ResourceManager.GetString("SaveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скажи как тебя зовут.
+        /// </summary>
+        public static string SayYourName {
+            get {
+                return ResourceManager.GetString("SayYourName", resourceCulture);
             }
         }
         
@@ -319,6 +391,15 @@ namespace Coursework.Properties {
         public static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Привет, как тебя зовут? .
+        /// </summary>
+        public static string WhatIsYourName {
+            get {
+                return ResourceManager.GetString("WhatIsYourName", resourceCulture);
             }
         }
         

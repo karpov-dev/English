@@ -1,9 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using System;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.Events;
 
 namespace Coursework.Models.Classes.User.WordCollections
 {
+    [Serializable]
     class OneCollection : Event
     {
         private string _title;

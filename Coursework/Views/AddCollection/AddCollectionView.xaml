@@ -74,7 +74,7 @@
                 <TextBlock Text="{x:Static res:Resources.Word}" Grid.Column="0" Grid.Row="2"/>
                 <TextBlock Text="{x:Static res:Resources.Translation}" Grid.Column="1" Grid.Row="2"/>
             </Grid>
-            <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
                     <ItemsControl ItemsSource="{Binding WordPairs}">
                         <ItemsControl.ItemTemplate>

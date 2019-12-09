@@ -3,6 +3,7 @@ using Coursework.Models.Classes.Events;
 
 namespace Coursework.Models.Classes.User.Statistics
 {
+    [Serializable]
     class StatisticsForTheDay : Event
     {
         private int _learnedWords;
