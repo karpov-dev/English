@@ -295,6 +295,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Смешанный.
+        /// </summary>
+        public static string MixedType {
+            get {
+                return ResourceManager.GetString("MixedType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тест будет включать в себя задания как и с вариантами ответа, так и с правописанием.
+        /// </summary>
+        public static string MixedTypeDescription {
+            get {
+                return ResourceManager.GetString("MixedTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Подробнее.
         /// </summary>
         public static string More {
@@ -349,11 +367,38 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите тип теста .
+        /// </summary>
+        public static string SelectTypeOfTest {
+            get {
+                return ResourceManager.GetString("SelectTypeOfTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Краткая статистика.
         /// </summary>
         public static string ShotStatistics {
             get {
                 return ResourceManager.GetString("ShotStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Правописание .
+        /// </summary>
+        public static string SpellingType {
+            get {
+                return ResourceManager.GetString("SpellingType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вам будет давно слово. Необходимо правильно написать его перевод .
+        /// </summary>
+        public static string SpellingTypeDescription {
+            get {
+                return ResourceManager.GetString("SpellingTypeDescription", resourceCulture);
             }
         }
         
@@ -372,6 +417,15 @@ namespace Coursework.Properties {
         public static string Translation {
             get {
                 return ResourceManager.GetString("Translation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на У вас нет ни одной коллекции. Добавьте свою первую коллекцию и возвращайтесь опять.
+        /// </summary>
+        public static string UserWithoutCollections {
+            get {
+                return ResourceManager.GetString("UserWithoutCollections", resourceCulture);
             }
         }
         
@@ -404,11 +458,38 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не найдено выделенных подборок. Выделите хотя бы одну подборку .
+        /// </summary>
+        public static string WithoutCheckedCollections {
+            get {
+                return ResourceManager.GetString("WithoutCheckedCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Слово.
         /// </summary>
         public static string Word {
             get {
                 return ResourceManager.GetString("Word", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на С вариантами ответа .
+        /// </summary>
+        public static string WordsType {
+            get {
+                return ResourceManager.GetString("WordsType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вам будет дано слово и четыре варианта ответа, один из которых будет правильный.
+        /// </summary>
+        public static string WordsTypeDescription {
+            get {
+                return ResourceManager.GetString("WordsTypeDescription", resourceCulture);
             }
         }
     }

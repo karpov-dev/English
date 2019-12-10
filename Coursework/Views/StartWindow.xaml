@@ -7,6 +7,8 @@
         xmlns:AddNewCollection="clr-namespace:Coursework.Views.AddCollection"
         xmlns:HelloPage="clr-namespace:Coursework.Views.HelloPage"
         xmlns:EditPage="clr-namespace:Coursework.Views.EditCollection"
+        xmlns:TestV="clr-namespace:Coursework.Views.Tests"
+        xmlns:TestVM="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests"
         xmlns:local="clr-namespace:Coursework.Views"
         mc:Ignorable="d"
         Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
@@ -26,6 +28,10 @@
 
         <DataTemplate DataType="{x:Type page:EditCollectionPageVM}">
             <EditPage:EditCollection/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TestVM:SelectTestTypePageVM}">
+            <TestV:SelectTestPage/>
         </DataTemplate>
         
     </Window.Resources>

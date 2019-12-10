@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using Coursework.Models;
 using Coursework.ViewModel.NavigateBase;
 using Coursework.ViewModel.MangerOfNavigate;
 using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.WordCollections;
+using Coursework.ViewModel.ViewModels.PagesVM.Tests;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM
 {
@@ -14,6 +14,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
         private RelayCommand _addNewCollectionCommand;
         private RelayCommand _deleteCollectionCommand;
         private RelayCommand _editCollectionCommand;
+        private RelayCommand _goToTest;
         private OneCollection _selectedCollection;
 
         public MainPageVM(string viewModelName, NavigateManager manager) : base(viewModelName, manager)
@@ -83,6 +84,17 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                     {
                         OneCollection collection = obj as OneCollection;
                         Manager.CurrentViewModel = new EditCollectionPageVM(collection, Manager);
+                    }));
+            }
+        }
+        public RelayCommand GoToTest
+        {
+            get
+            {
+                return _goToTest ??
+                    (_goToTest = new RelayCommand(obj =>
+                    {
+                        Manager.CurrentViewModel = new SelectTestTypePageVM(_currentUser, Manager);
                     }));
             }
         }

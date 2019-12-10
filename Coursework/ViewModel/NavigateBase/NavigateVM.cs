@@ -6,7 +6,7 @@ using Coursework.ViewModel.MangerOfNavigate;
 
 namespace Coursework.ViewModel.NavigateBase
 {
-    class NavigateVM : EventVM
+    abstract class NavigateVM : EventVM
     {
         private RelayCommand _goToNextWindowCommand;
         private RelayCommand _exitCommand;

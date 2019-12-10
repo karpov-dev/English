@@ -2,7 +2,7 @@
 
 namespace Coursework.ViewModel.NavigateBase
 {
-    class ManagerVM : EventVM
+    abstract class ManagerVM : EventVM
     {
         protected object _currentViewModel;
         protected List<NavigateVM> _viewModels;

@@ -44,8 +44,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="{x:Static res:Resources.LearningButton}"/>
-            <Button Grid.Column="1" Content="{x:Static res:Resources.SelectedCollectionsButton}" FontSize="14"/>
+            <Button Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static res:Resources.LearningButton}"
+                    Command="{Binding GoToTest}"/>
             <Button Grid.Column="2" Content="{x:Static res:Resources.GameModeButton}" Grid.ColumnSpan="3"/>
             <Button Grid.Column="5" Content="{x:Static res:Resources.TheoryButton}"/>
             <Button Grid.Column="6" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}"/>

@@ -195,6 +195,12 @@
   <data name="LearningButton" xml:space="preserve">
     <value>Учить слова</value>
   </data>
+  <data name="MixedType" xml:space="preserve">
+    <value>Смешанный</value>
+  </data>
+  <data name="MixedTypeDescription" xml:space="preserve">
+    <value>Тест будет включать в себя задания как и с вариантами ответа, так и с правописанием</value>
+  </data>
   <data name="More" xml:space="preserve">
     <value>Подробнее</value>
   </data>
@@ -213,14 +219,26 @@
   <data name="SelectedCollectionsButton" xml:space="preserve">
     <value>Учить выбранные подборки</value>
   </data>
+  <data name="SelectTypeOfTest" xml:space="preserve">
+    <value>Выберите тип теста </value>
+  </data>
   <data name="ShotStatistics" xml:space="preserve">
     <value>Краткая статистика</value>
+  </data>
+  <data name="SpellingType" xml:space="preserve">
+    <value>Правописание </value>
+  </data>
+  <data name="SpellingTypeDescription" xml:space="preserve">
+    <value>Вам будет давно слово. Необходимо правильно написать его перевод </value>
   </data>
   <data name="TheoryButton" xml:space="preserve">
     <value>Теория</value>
   </data>
   <data name="Translation" xml:space="preserve">
     <value>Перевод</value>
+  </data>
+  <data name="UserWithoutCollections" xml:space="preserve">
+    <value>У вас нет ни одной коллекции. Добавьте свою первую коллекцию и возвращайтесь опять</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="UserWithoutPhoto" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -999,7 +1017,16 @@
   <data name="WhatIsYourName" xml:space="preserve">
     <value>Привет, как тебя зовут? </value>
   </data>
+  <data name="WithoutCheckedCollections" xml:space="preserve">
+    <value>Не найдено выделенных подборок. Выделите хотя бы одну подборку </value>
+  </data>
   <data name="Word" xml:space="preserve">
     <value>Слово</value>
+  </data>
+  <data name="WordsType" xml:space="preserve">
+    <value>С вариантами ответа </value>
+  </data>
+  <data name="WordsTypeDescription" xml:space="preserve">
+    <value>Вам будет дано слово и четыре варианта ответа, один из которых будет правильный</value>
   </data>
 </root>

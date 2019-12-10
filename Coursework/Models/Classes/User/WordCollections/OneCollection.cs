@@ -6,7 +6,7 @@ using Coursework.Models.Classes.Events;
 namespace Coursework.Models.Classes.User.WordCollections
 {
     [Serializable]
-    class OneCollection : Event
+    class OneCollection : Event, ICloneable
     {
         private string _title;
         private string _description;
@@ -46,5 +46,20 @@ namespace Coursework.Models.Classes.User.WordCollections
         }
         public ObservableCollection<OneWordPair> WordPair { get; set; }
         public int AmountWords => WordPair.Count;
+        
+        public object Clone()
+        {
+            ObservableCollection<OneWordPair> wordsPair = new ObservableCollection<OneWordPair>();
+            OneCollection collection = new OneCollection();
+            for(int i = 0; i < WordPair.Count; i++)
+            {
+                wordsPair.Add(new OneWordPair { Word = WordPair[i].Word, Translation = WordPair[i].Translation });
+            }
+            collection.WordPair = wordsPair;
+            collection.Title = this.Title;
+            collection.Description = this.Description;
+            collection.IsChecked = this.IsChecked;
+            return collection;
+        }
     }
 }
