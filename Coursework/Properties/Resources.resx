@@ -147,6 +147,9 @@
   <data name="CancelWithFullFields" xml:space="preserve">
     <value>У вас остались заполненные поля. Вы действительно хотите выйти?</value>
   </data>
+  <data name="Check" xml:space="preserve">
+    <value>Проверить</value>
+  </data>
   <data name="CollectionDescription" xml:space="preserve">
     <value>Описание подборки</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="DeleteSelectedCollections" xml:space="preserve">
     <value>Удалить выбранные подборки</value>
   </data>
+  <data name="Delightfully" xml:space="preserve">
+    <value>Восхитительно!</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
@@ -174,14 +180,26 @@
   <data name="EmptyFieldsError" xml:space="preserve">
     <value>У вас остались незаполненные поля</value>
   </data>
+  <data name="End" xml:space="preserve">
+    <value>Закончить</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
   <data name="ExitButton" xml:space="preserve">
     <value>Выход</value>
   </data>
+  <data name="ForNextTestSeconds" xml:space="preserve">
+    <value>До следующего теста</value>
+  </data>
   <data name="GameModeButton" xml:space="preserve">
     <value>Игровой режим</value>
+  </data>
+  <data name="Good" xml:space="preserve">
+    <value>Отлично!</value>
+  </data>
+  <data name="GoodJob" xml:space="preserve">
+    <value>Хорошая работа!</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Привет</value>
@@ -191,6 +209,9 @@
   </data>
   <data name="Information" xml:space="preserve">
     <value>Информация</value>
+  </data>
+  <data name="KeepItUp" xml:space="preserve">
+    <value>Так держать!</value>
   </data>
   <data name="LearningButton" xml:space="preserve">
     <value>Учить слова</value>
@@ -216,6 +237,9 @@
   <data name="SayYourName" xml:space="preserve">
     <value>Скажи как тебя зовут</value>
   </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>секунд</value>
+  </data>
   <data name="SelectedCollectionsButton" xml:space="preserve">
     <value>Учить выбранные подборки</value>
   </data>
@@ -233,6 +257,12 @@
   </data>
   <data name="TheoryButton" xml:space="preserve">
     <value>Теория</value>
+  </data>
+  <data name="TotalAddedWords" xml:space="preserve">
+    <value>Добавлено слов:</value>
+  </data>
+  <data name="TotalLernedWords" xml:space="preserve">
+    <value>Выучено слов: </value>
   </data>
   <data name="Translation" xml:space="preserve">
     <value>Перевод</value>
@@ -1010,6 +1040,9 @@
         sYeIFcABkQAFeg6xh4gVwAGRAAV6DrGHiBXAAZEABXoOsYeIFcABkQAFeg6xh4gVwAGRAAV6DrGHiBXA
         AZEABXoOsYeIFcABkQAFeg6xh4gVwAGRAAV6DrGHiBXAAZEAAA//2Q==
 </value>
+  </data>
+  <data name="VeryGood" xml:space="preserve">
+    <value>Превосходно!</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Предупреждение</value>

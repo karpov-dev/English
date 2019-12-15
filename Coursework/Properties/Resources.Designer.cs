@@ -151,6 +151,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Проверить.
+        /// </summary>
+        public static string Check {
+            get {
+                return ResourceManager.GetString("Check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Описание подборки.
         /// </summary>
         public static string CollectionDescription {
@@ -205,6 +214,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Восхитительно!.
+        /// </summary>
+        public static string Delightfully {
+            get {
+                return ResourceManager.GetString("Delightfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактировать.
         /// </summary>
         public static string Edit {
@@ -232,6 +250,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Закончить.
+        /// </summary>
+        public static string End {
+            get {
+                return ResourceManager.GetString("End", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Ошибка.
         /// </summary>
         public static string Error {
@@ -250,11 +277,38 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на До следующего теста.
+        /// </summary>
+        public static string ForNextTestSeconds {
+            get {
+                return ResourceManager.GetString("ForNextTestSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Игровой режим.
         /// </summary>
         public static string GameModeButton {
             get {
                 return ResourceManager.GetString("GameModeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отлично!.
+        /// </summary>
+        public static string Good {
+            get {
+                return ResourceManager.GetString("Good", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Хорошая работа!.
+        /// </summary>
+        public static string GoodJob {
+            get {
+                return ResourceManager.GetString("GoodJob", resourceCulture);
             }
         }
         
@@ -282,6 +336,15 @@ namespace Coursework.Properties {
         public static string Information {
             get {
                 return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Так держать!.
+        /// </summary>
+        public static string KeepItUp {
+            get {
+                return ResourceManager.GetString("KeepItUp", resourceCulture);
             }
         }
         
@@ -358,6 +421,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на секунд.
+        /// </summary>
+        public static string Seconds {
+            get {
+                return ResourceManager.GetString("Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Учить выбранные подборки.
         /// </summary>
         public static string SelectedCollectionsButton {
@@ -412,6 +484,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавлено слов:.
+        /// </summary>
+        public static string TotalAddedWords {
+            get {
+                return ResourceManager.GetString("TotalAddedWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выучено слов: .
+        /// </summary>
+        public static string TotalLernedWords {
+            get {
+                return ResourceManager.GetString("TotalLernedWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Перевод.
         /// </summary>
         public static string Translation {
@@ -436,6 +526,15 @@ namespace Coursework.Properties {
             get {
                 object obj = ResourceManager.GetObject("UserWithoutPhoto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Превосходно!.
+        /// </summary>
+        public static string VeryGood {
+            get {
+                return ResourceManager.GetString("VeryGood", resourceCulture);
             }
         }
         

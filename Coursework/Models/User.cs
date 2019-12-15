@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Coursework.Models.Classes.User.Achievements;
+using Coursework.Models.Classes.User.Information;
+using Coursework.Models.Classes.User.Statistics;
+using Coursework.Models.Classes.User.WordCollections;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Coursework.Models.Classes.User.Statistics;
-using Coursework.Models.Classes.User.Achievements;
-using Coursework.Models.Classes.User.WordCollections;
-using Coursework.Models.Classes.User.Information;
 
 namespace Coursework.Models
 {
@@ -33,7 +33,7 @@ namespace Coursework.Models
         private void Serialization(object sender, System.Windows.ExitEventArgs e)
         {
             var formatter = new BinaryFormatter();
-            using (FileStream stream = File.Create(_dataFileName))
+            using ( FileStream stream = File.Create(_dataFileName) )
             {
                 formatter.Serialize(stream, Statistics);
                 formatter.Serialize(stream, Achievements);
@@ -44,14 +44,14 @@ namespace Coursework.Models
         private void Deserialization()
         {
             var formatter = new BinaryFormatter();
-            if(File.Exists(_dataFileName))
+            if ( File.Exists(_dataFileName) )
             {
-                using (FileStream stream = File.OpenRead(_dataFileName))
+                using ( FileStream stream = File.OpenRead(_dataFileName) )
                 {
-                    Statistics = (UserStatistics)formatter.Deserialize(stream);
-                    Achievements = (Achievements)formatter.Deserialize(stream);
-                    Collections = (WordCollection)formatter.Deserialize(stream);
-                    Information = (UserInformation)formatter.Deserialize(stream);
+                    Statistics = (UserStatistics) formatter.Deserialize(stream);
+                    Achievements = (Achievements) formatter.Deserialize(stream);
+                    Collections = (WordCollection) formatter.Deserialize(stream);
+                    Information = (UserInformation) formatter.Deserialize(stream);
                 }
             }
         }

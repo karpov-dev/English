@@ -75,9 +75,10 @@
     <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\SelectTestTypePageVM.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestBase\Test.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestBase\WordsTypeVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestsManager\TestManager.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\OptionType.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\SpellingType.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\TestBase.cs" />
     <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
     <Compile Include="ViewModel\MangerOfNavigate\NavigateManager.cs" />
@@ -103,8 +104,14 @@
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Tests\OptionTypePage.xaml.cs">
+      <DependentUpon>OptionTypePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Tests\SelectTestPage.xaml.cs">
       <DependentUpon>SelectTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tests\SpellingTypePage.xaml.cs">
+      <DependentUpon>SpellingTypePage.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddCollection\AddCollectionView.xaml">
       <SubType>Designer</SubType>
@@ -126,7 +133,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Tests\OptionTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Tests\SelectTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tests\SpellingTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

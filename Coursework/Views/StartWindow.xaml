@@ -8,7 +8,8 @@
         xmlns:HelloPage="clr-namespace:Coursework.Views.HelloPage"
         xmlns:EditPage="clr-namespace:Coursework.Views.EditCollection"
         xmlns:TestV="clr-namespace:Coursework.Views.Tests"
-        xmlns:TestVM="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests"
+        xmlns:TestVM="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager"
+        xmlns:TestTypes="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes"
         xmlns:local="clr-namespace:Coursework.Views"
         mc:Ignorable="d"
         Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
@@ -30,10 +31,17 @@
             <EditPage:EditCollection/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type TestVM:SelectTestTypePageVM}">
+        <DataTemplate DataType="{x:Type TestVM:TestManager}">
             <TestV:SelectTestPage/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type TestTypes:OptionType}">
+            <TestV:OptionTypePage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TestTypes:SpellingType}">
+            <TestV:SpellingTypePage/>
+        </DataTemplate>
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 

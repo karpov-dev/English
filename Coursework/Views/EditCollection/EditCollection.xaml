@@ -23,7 +23,7 @@
     
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
@@ -33,7 +33,11 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="{x:Static res:Resources.EditCollection}" FontSize="30" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
         <Grid Grid.Row="1" Background="Azure" Grid.Column="0" Grid.ColumnSpan="2">
-            <StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
                 <TextBlock Text="{x:Static res:Resources.CollectionName}"/>
                 <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MaxWidth="300"/>
                 <TextBlock Text="{x:Static res:Resources.CollectionDescription}"/>
@@ -43,37 +47,38 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Button Content="{x:Static res:Resources.AddPair}" Command="{Binding AddNewWordPair}" Grid.Column="0" Grid.Row="0"/>
-                    <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSeceltedWordPairs}" Grid.Column="1" Grid.Row="0"/>
-                    <TextBlock Text="{x:Static res:Resources.Word}" Grid.Column="0" Grid.Row="1"/>
-                    <TextBlock Text="{x:Static res:Resources.Translation}" Grid.Column="1" Grid.Row="1"/>
-                    <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                        <StackPanel>
-                            <ItemsControl ItemsSource="{Binding WordPairs}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <CheckBox IsChecked="{Binding IsCheck}" Grid.Column="0"/>
-                                            <TextBox Text="{Binding Word}" Grid.Column="1" Margin="20, 5, 5, 20"/>
-                                            <TextBox Text="{Binding Translation}" Grid.Column="2" Margin="20, 5, 5, 20"/>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </ScrollViewer>
+                    <StackPanel Grid.Column="0">
+                        <Button Content="{x:Static res:Resources.AddPair}" Command="{Binding AddNewWordPair}"/>
+                        <TextBlock Text="{x:Static res:Resources.Word}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSeceltedWordPairs}"/>
+                        <TextBlock Text="{x:Static res:Resources.Translation}"/>
+                    </StackPanel>
                 </Grid>
             </StackPanel>
+            <Grid Grid.Row="1">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding WordPairs}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox IsChecked="{Binding IsCheck}" Grid.Column="0"/>
+                                        <TextBox Text="{Binding Word}" Grid.Column="1" Margin="20, 5, 5, 20"/>
+                                        <TextBox Text="{Binding Translation}" Grid.Column="2" Margin="20, 5, 5, 20"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
         </Grid>
         <Button Content="{x:Static res:Resources.Cancel}" Command="{Binding CancelCommand}" Grid.Column="0" Grid.Row="2"/>
         <Button Content="{x:Static res:Resources.SaveButton}" Grid.Column="1" Grid.Row="2" Command="{Binding SaveCommand}"/>

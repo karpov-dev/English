@@ -4,7 +4,8 @@ using Coursework.ViewModel.NavigateBase;
 using Coursework.ViewModel.MangerOfNavigate;
 using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.WordCollections;
-using Coursework.ViewModel.ViewModels.PagesVM.Tests;
+using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
+using Coursework.Models.Classes.User.Statistics;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM
 {
@@ -38,6 +39,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
             }
         }
         public string UserName => _currentUser.Information.Name;
+        public UserStatistics UserStatistic => _currentUser.Statistics;
         public bool EditButtonEnabled
         {
             get
@@ -94,9 +96,38 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                 return _goToTest ??
                     (_goToTest = new RelayCommand(obj =>
                     {
-                        Manager.CurrentViewModel = new SelectTestTypePageVM(_currentUser, Manager);
+                        if(CheckCollectionsForChecked(_currentUser.Collections.GetCollections()) 
+                        && CheckCollectionsForNull(_currentUser.Collections.GetCollections()) )
+                        {
+                            Manager.CurrentViewModel = new TestManager(_currentUser, Manager);
+                        }
+                        else
+                        {
+                            InformationMessage(Properties.Resources.WithoutCheckedCollections);
+                        }
                     }));
             }
+        }
+
+
+        private bool CheckCollectionsForNull(ObservableCollection<OneCollection> collections)
+        {
+            if ( collections == null )
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool CheckCollectionsForChecked(ObservableCollection<OneCollection> collections)
+        {
+            for ( int i = 0; i < collections.Count; i++ )
+            {
+                if ( collections[i].IsChecked )
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

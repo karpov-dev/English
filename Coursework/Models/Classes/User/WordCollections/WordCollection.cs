@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using System;
+﻿using System;
+using System.Collections.ObjectModel;
 
 namespace Coursework.Models.Classes.User.WordCollections
 {
@@ -21,7 +21,7 @@ namespace Coursework.Models.Classes.User.WordCollections
         public void DeleteCollection(OneCollection deletedCollection) => _collections.Remove(deletedCollection);
         public void DeleteCollections(int[] collectionIndexes)
         {
-            for(int i = 0; i < collectionIndexes.Length; i++)
+            for ( int i = 0; i < collectionIndexes.Length; i++ )
             {
                 _collections.RemoveAt(collectionIndexes[i]);
             }

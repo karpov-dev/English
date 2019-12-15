@@ -28,7 +28,7 @@ namespace Coursework.Models.Classes.User.Statistics
             get
             {
                 int learnedWords = 0;
-                for(int i = 0; 0 < _daysStatistics.Count; i++)
+                for(int i = 0; i < _daysStatistics.Count; i++)
                 {
                     learnedWords += _daysStatistics[i].LearnedWords;
                 }
@@ -57,6 +57,10 @@ namespace Coursework.Models.Classes.User.Statistics
                     experience += _daysStatistics[i].DayExperience;
                 }
                 return experience;
+            }
+            set
+            {
+
             }
         }
 

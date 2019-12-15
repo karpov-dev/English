@@ -1,5 +1,6 @@
 ﻿using Coursework.ViewModel.NavigateBase;
 using Coursework.ViewModel.ViewModels.PagesVM;
+using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models;
 
 namespace Coursework.ViewModel.MangerOfNavigate
