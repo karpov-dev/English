@@ -6,21 +6,28 @@ namespace Coursework.Models.Classes.User.Statistics
     [Serializable]
     class UserStatistics
     {
+        private const int _levelSeed = 500;
+
         private ObservableCollection<StatisticsForTheDay> _daysStatistics;
         private int _currentDayIndex;
+        private int _currentLevel;
 
 
         public UserStatistics()
         {
             _daysStatistics = new ObservableCollection<StatisticsForTheDay>();
             _currentDayIndex = _daysStatistics.Count - 1;
+            _currentLevel = 1;
             CheckDate(_currentDayIndex);
         }
 
 
+        public StatisticsForTheDay DayStatistics() => _daysStatistics[_currentDayIndex];
         public int DayLearnedWords(int day) => _daysStatistics[day].LearnedWords;
         public int DayAddedWords(int day) => _daysStatistics[day].AddedWords;
-        public int DayExperience(int day) => _daysStatistics[day].DayExperience;
+        public int DayExperience(int day) => _daysStatistics[day].Exp;
+        public int DayRepitedWords(int day) => _daysStatistics[day].RepitedWords;
+        public int DayWrongWords(int day) => _daysStatistics[day].WrongWords;
 
 
         public int TotalLearnedWords
@@ -54,7 +61,7 @@ namespace Coursework.Models.Classes.User.Statistics
                 int experience = 0;
                 for(int i = 0; i < _daysStatistics.Count; i++)
                 {
-                    experience += _daysStatistics[i].DayExperience;
+                    experience += _daysStatistics[i].Exp;
                 }
                 return experience;
             }
@@ -63,19 +70,82 @@ namespace Coursework.Models.Classes.User.Statistics
 
             }
         }
+        public int TotalRepited
+        {
+            get
+            {
+                int repitedWords = 0;
+                for(int i = 0; i < _daysStatistics.Count; i++ )
+                {
+                    repitedWords += _daysStatistics[i].RepitedWords;
+                }
+                return repitedWords;
+            }
+        }
+        public int TotalWrongs
+        {
+            get
+            {
+                int wrongs = 0;
+                for(int i = 0; i < _daysStatistics.Count; i++ )
+                {
+                    wrongs += _daysStatistics[i].WrongWords;
+                }
+                return wrongs;
+            }
+        }
+        public int CurrentLevel
+        {
+            get
+            {
+                _currentLevel = 1;
+                while ( TotalExperience > _currentLevel * ( _levelSeed + _currentLevel / 2 ) )
+                {
+                    _currentLevel++;
+                }   
+                return _currentLevel;
+            }
+        }
+        public int ExpForNextLevel
+        {
+            get
+            {
+                return _currentLevel * ( _levelSeed + _currentLevel * 2 );
+            }
+        }
+        public int PreviusLevel
+        {
+            get => CurrentLevel - 1;
+        }
+        public int SecondLevel
+        {
+            get => CurrentLevel + 1;
+        }
+        public int CurrentLevelDifference
+        {
+            get => ExpForNextLevel - TotalExperience;
+        }
 
 
-        public void LearnedWords()
+        public void AddLearnedWords(int amount)
         {
-            _daysStatistics[_currentDayIndex].LearnedWords++;
+            _daysStatistics[_currentDayIndex].AddLearnedWords(amount);
         }
-        public void AddedWords()
+        public void AddAddedWords(int amount)
         {
-            _daysStatistics[_currentDayIndex].AddedWords++;
+            _daysStatistics[_currentDayIndex].AddAddedWords(amount);
         }
-        public void Experience(int amountExperience)
+        public void AddExperience(int amountExperience)
         {
-            _daysStatistics[_currentDayIndex].DayExperience += amountExperience;
+            _daysStatistics[_currentDayIndex].AddExp(amountExperience);
+        }
+        public void AddRepitedWords(int amount)
+        {
+            _daysStatistics[_currentDayIndex].AddRepitedWords(amount);
+        }
+        public void AddWrongs(int amount)
+        {
+            _daysStatistics[_currentDayIndex].AddWrongWords(amount);
         }
 
 

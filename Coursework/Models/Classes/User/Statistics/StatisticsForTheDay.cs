@@ -6,42 +6,43 @@ namespace Coursework.Models.Classes.User.Statistics
     [Serializable]
     class StatisticsForTheDay : Event
     {
-        private int _learnedWords;
-        private int _addedWords;
-        private int _dayExperience;
-
-        public StatisticsForTheDay(DateTime currentDate)
+        public StatisticsForTheDay(DateTime dateOfCreate)
         {
-            Date = currentDate;
+            Date = dateOfCreate;
         }
 
-        public DateTime Date { get;}
-        public int LearnedWords
+        public int Exp { get; private set; }
+        public int LearnedWords { get; private set; }
+        public int AddedWords { get; private set; }
+        public int RepitedWords { get; private set; }
+        public int WrongWords { get; private set; }
+        public  DateTime Date { get; }
+
+
+        public void AddExp(int amount)
         {
-            get => _learnedWords;
-            set
-            {
-                _learnedWords = value;
-                OnPropertyChanged("LearnedWords");
-            }
+            Exp += amount;
+            OnPropertyChanged("Exp");
         }
-        public int AddedWords
+        public void AddLearnedWords(int amount)
         {
-            get => _addedWords;
-            set
-            {
-                _addedWords = value;
-                OnPropertyChanged("AddedWords");
-            }
+            LearnedWords += amount;
+            OnPropertyChanged("LearnedWords");
         }
-        public int DayExperience
+        public void AddAddedWords(int amount)
         {
-            get => _dayExperience;
-            set
-            {
-                _dayExperience = value;
-                OnPropertyChanged("DayExperience");
-            }
+            AddedWords += amount;
+            OnPropertyChanged("AddedWords");
+        }
+        public void AddRepitedWords(int amount)
+        {
+            RepitedWords += amount;
+            OnPropertyChanged("RepitedWords");
+        }
+        public void AddWrongWords(int amount)
+        {
+            WrongWords += amount;
+            OnPropertyChanged("WrongWords");
         }
     }
 }

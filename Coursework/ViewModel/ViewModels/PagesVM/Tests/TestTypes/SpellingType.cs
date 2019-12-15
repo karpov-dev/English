@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Windows;
+using System.Speech.Synthesis;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
-using System.ComponentModel;
-using Coursework.Models;
 using Coursework.Models.Classes.Events;
 using Coursework.Models.Classes.Commands;
 using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
-using Coursework.ViewModel.ViewModels.VM;
-using Coursework.Models.Classes.User.Statistics;
+using Coursework.Models.Classes.Test;
+
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
-    class SpellingType : TestBase
+    class SpellingType : Event
     {
         private const int SecondsToNextTest = 1;
 
-        private UserStatistics _statistics;
+        private OneSessionStatistics _oneSessionStatistics;
         private TestManager _owner;
         private OneWordPair _wordPair;
+        private OneCollection _currentCollection;
+        private ObservableCollection<OneCollection> _userCollections;
         private DispatcherTimer _timer;
         private Visibility _timerVisibility;
+        private Random _random;
 
-        private string _word;
-        private string _translation;
         private string _userInput;
         private string _textResult;
         private List<string> _textResults;
@@ -35,27 +35,29 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private bool _expectation;
 
         private RelayCommand _backButton;
+        private RelayCommand _speakWord;
 
 
-        public SpellingType(UserStatistics userStatistics, ObservableCollection<OneCollection> userCollections, TestManager owner)
-            : base(userCollections)
+        public SpellingType(Random random, ObservableCollection<OneCollection> userCollections, 
+            TestManager owner, OneSessionStatistics oneSessionStatistics)
         {
+            _random = random;
+            _oneSessionStatistics = oneSessionStatistics;
             _timerVisibility = Visibility.Hidden;
             _expectation = true;
-            _statistics = userStatistics;
+            _userCollections = userCollections;
             _owner = owner;
             _textResults = new List<string>();
-            SetTextResults();
             UpdateTest();
         }
 
 
         public string Word
         {
-            get => _word;
+            get => _wordPair.Word;
             set
             {
-                _word = value;
+                _wordPair.Word = value;
                 OnPropertyChanged("Word");
             }
         }
@@ -96,7 +98,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("Timer");
             }
         }
-        public int TranslationLenght => _translation.Length;
+        public int TranslationLenght => _wordPair.Translation.Length;
         public Visibility TimerVisibility
         {
             get => _timerVisibility;
@@ -125,41 +127,61 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 return _backButton ??
                     ( _backButton = new RelayCommand(obj =>
                      {
-                         _owner.Manager.CurrentViewModel = _owner;
+                         _owner.BackAndClean();
+                     }) );
+            }
+        }
+        public RelayCommand Speak
+        {
+            get
+            {
+                return _speakWord ??
+                    ( _speakWord = new RelayCommand(obj =>
+                     {
+
                      }) );
             }
         }
 
-
         private void UpdateTest()
         {
-            _currentCollection = SetRandomCurrentCollection(_collections);
-            _wordPair = GetWordPair(_currentCollection);
+            _currentCollection = Test.SetRandomCurrentCollection(_random, _userCollections);
+            _wordPair = Test.GetWordPair(_random, _currentCollection);
             Word = _wordPair.Word;
-            _translation = _wordPair.Translation;
-            AmountRightSymbols = 0;
-            TextResult = "";
-            UserInput = "";
-            TimerVisibility = Visibility.Hidden;
             Expectation = true;
         }
         private void CheckInput()
         {
-            if(_translation.Contains(UserInput))
+            if(_wordPair.Translation.Contains(UserInput))
             {
                 AmountRightSymbols = UserInput.Length;
             }
             else
             {
                 AmountRightSymbols = 0;
+                UpdateStatistics(false);
             }
 
-            if(_translation == UserInput)
+            if(_wordPair.Translation == UserInput)
             {
-                TextResult = _textResults[_random.Next(0, _textResults.Count)];
+                TextResult = _owner.RightOutput();
                 TimerVisibility = Visibility.Visible;
                 Expectation = false;
+                UpdateStatistics(true);
                 GoToNextTest();
+            }
+        }
+        private void UpdateStatistics(bool result)
+        {
+            if(result)
+            {
+                _wordPair.AmountRepetiotion++;
+                _oneSessionStatistics.AddExp(_wordPair);
+                _oneSessionStatistics.UpdateOneWordStatistic(_wordPair);
+            }
+            else
+            {
+                _oneSessionStatistics.AddAmountErrors();
             }
         }
         private void GoToNextTest()
@@ -176,16 +198,8 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
             if(Timer < 0)
             {
                 _timer.Stop();
-                UpdateTest();
+                _owner.NextTest();
             }
-        }
-        private void SetTextResults()
-        {
-            _textResults.Add(Properties.Resources.Good);
-            _textResults.Add(Properties.Resources.GoodJob);
-            _textResults.Add(Properties.Resources.VeryGood);
-            _textResults.Add(Properties.Resources.KeepItUp);
-            _textResults.Add(Properties.Resources.Delightfully);
         }
     }
 }

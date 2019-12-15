@@ -51,16 +51,38 @@
             <Button Grid.Column="6" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}"/>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="AliceBlue">
-            <TextBlock Text="{x:Static res:Resources.Information}" FontSize="25"/>
-            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
-                <TextBlock>
-                    <Run Text="{x:Static res:Resources.Hello}"/>
-                    <Run Text=", "/>
-                </TextBlock>
-                <TextBlock Text="{Binding UserName}"/>
-            </StackPanel>
-            <StackPanel DataContext="{Binding UserStatistic}">
-                <ProgressBar Minimum="0" Maximum="100" Value="{Binding TotalExperience}" Height="20" Margin="20,0,20,0"/>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock Text="{x:Static res:Resources.Hello}" FontSize="30"/>
+                <TextBlock Text=", " FontSize="30"/>
+                <TextBlock Text="{Binding UserName}" FontSize="30"/>
+            </DockPanel>
+            <Image Source="{Binding UserImagePath}" Height="200" Width="200" Margin="20"/>
+            <StackPanel DataContext="{Binding TotalUserStatistic}">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="0.9*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock Text="{x:Static res:Resources.Level}" FontSize="18"/>
+                        <TextBlock Text="{Binding CurrentLevel}" FontSize="18"/>
+                    </DockPanel>
+                    <TextBlock Text="{Binding PreviusLevel}" Grid.Column="0" Grid.Row="1" Margin="5"/>
+                    <ProgressBar Minimum="0" Maximum="{Binding ExpForNextLevel}" Value="{Binding TotalExperience}" Height="20" Margin="5"
+                                 Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="{Binding SecondLevel}" Grid.Column="2" Grid.Row="1" Margin="5"/>
+                    <DockPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
+                        <TextBlock Text="{Binding TotalExperience}" Margin="0" FontSize="10"/>
+                        <TextBlock Text="/" Margin="0" FontSize="10"/>
+                        <TextBlock Text="{Binding ExpForNextLevel}" Margin="0" FontSize="10"/>
+                    </DockPanel>
+                </Grid>
             </StackPanel>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Background="BlanchedAlmond">
@@ -109,15 +131,61 @@
             </ListBox>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="3" Background="Bisque">
-            <TextBlock Text="{x:Static res:Resources.ShotStatistics}" FontSize="25"/>
-            <StackPanel DataContext="{Binding UserStatistic}">
+            <StackPanel DataContext="{Binding CurrentDayStatistics}" Margin="20">
+                <TextBlock Text="{x:Static res:Resources.ShotStatistics}" FontSize="25"/>
+                <TextBlock Text="{x:Static res:Resources.ForTheDay}" FontSize="22"/>
                 <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.TotalLernedWords}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{x:Static res:Resources.TotalLernedWords}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding LearnedWords}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.AmountRepitedWords}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding RepitedWords}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.TotalAddedWords}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding AddedWords}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.DayExp}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding Exp}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.AmountErrors}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding WrongWords}"/>
+                </DockPanel>
+            </StackPanel>
+            <StackPanel DataContext="{Binding TotalUserStatistic}" Margin="20">
+                <TextBlock Text="{x:Static res:Resources.ForAllTime}" FontSize="22"/>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.TotalLernedWords}"/>
+                    <TextBlock Text=":"/>
                     <TextBlock Text="{Binding TotalLearnedWords}"/>
                 </DockPanel>
                 <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.TotalAddedWords}" DockPanel.Dock="Left"/>
-                    <TextBlock Text="{Binding TotalAddedWords}" DockPanel.Dock="Left"/>
+                    <TextBlock Text="{x:Static res:Resources.AmountRepitedWords}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding TotalRepited}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.TotalAddedWords}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding TotalAddedWords}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.DayExp}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding TotalExperience}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.AmountErrors}"/>
+                    <TextBlock Text=":"/>
+                    <TextBlock Text="{Binding TotalWrongs}"/>
                 </DockPanel>
             </StackPanel>
         </StackPanel>

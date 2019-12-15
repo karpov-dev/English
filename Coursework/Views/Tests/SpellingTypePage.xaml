@@ -24,10 +24,19 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.7*"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="{Binding Word}" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"
                            Grid.Row="0"/>
-                <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Озвучить" FontSize="20" Command="{Binding Speak}"/>
+                </Grid>
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                     <TextBlock Text="{Binding TextResult}" HorizontalAlignment="Center" FontSize="20" Foreground="ForestGreen"
                                Margin="10" FontStyle="Italic"/>
                     <DockPanel Grid.Row="0" Visibility="{Binding TimerVisibility}" HorizontalAlignment="Center">

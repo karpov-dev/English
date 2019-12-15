@@ -115,6 +115,70 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap adventurer {
+            get {
+                object obj = ResourceManager.GetObject("adventurer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сделано ошибок.
+        /// </summary>
+        public static string AmountErrors {
+            get {
+                return ResourceManager.GetString("AmountErrors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество выученных слов.
+        /// </summary>
+        public static string AmountLernedWordsInTest {
+            get {
+                return ResourceManager.GetString("AmountLernedWordsInTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Повторено.
+        /// </summary>
+        public static string AmountRepitedWords {
+            get {
+                return ResourceManager.GetString("AmountRepitedWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество повторённых слов.
+        /// </summary>
+        public static string AmountRepitedWordsInTest {
+            get {
+                return ResourceManager.GetString("AmountRepitedWordsInTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Затраченное время .
+        /// </summary>
+        public static string AmountTime {
+            get {
+                return ResourceManager.GetString("AmountTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество ошибок .
+        /// </summary>
+        public static string AmountWrongsInTest {
+            get {
+                return ResourceManager.GetString("AmountWrongsInTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Название приложения .
         /// </summary>
         public static string ApplicationTitle {
@@ -192,6 +256,15 @@ namespace Coursework.Properties {
         public static string CreatingNewUser {
             get {
                 return ResourceManager.GetString("CreatingNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Получено опыта.
+        /// </summary>
+        public static string DayExp {
+            get {
+                return ResourceManager.GetString("DayExp", resourceCulture);
             }
         }
         
@@ -277,11 +350,58 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap expeditioner {
+            get {
+                object obj = ResourceManager.GetObject("expeditioner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap explorer {
+            get {
+                object obj = ResourceManager.GetObject("explorer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на За все время.
+        /// </summary>
+        public static string ForAllTime {
+            get {
+                return ResourceManager.GetString("ForAllTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на До следующего уровня.
+        /// </summary>
+        public static string ForNextLevel {
+            get {
+                return ResourceManager.GetString("ForNextLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на До следующего теста.
         /// </summary>
         public static string ForNextTestSeconds {
             get {
                 return ResourceManager.GetString("ForNextTestSeconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на За день.
+        /// </summary>
+        public static string ForTheDay {
+            get {
+                return ResourceManager.GetString("ForTheDay", resourceCulture);
             }
         }
         
@@ -358,6 +478,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Уровень.
+        /// </summary>
+        public static string Level {
+            get {
+                return ResourceManager.GetString("Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Меню.
+        /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Смешанный.
         /// </summary>
         public static string MixedType {
@@ -385,11 +523,31 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mountaineer {
+            get {
+                object obj = ResourceManager.GetObject("mountaineer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Далее.
         /// </summary>
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ranger {
+            get {
+                object obj = ResourceManager.GetObject("ranger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -421,6 +579,16 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap scout {
+            get {
+                object obj = ResourceManager.GetObject("scout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на секунд.
         /// </summary>
         public static string Seconds {
@@ -444,6 +612,15 @@ namespace Coursework.Properties {
         public static string SelectTypeOfTest {
             get {
                 return ResourceManager.GetString("SelectTypeOfTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Результаты теста.
+        /// </summary>
+        public static string SessionResult {
+            get {
+                return ResourceManager.GetString("SessionResult", resourceCulture);
             }
         }
         
@@ -484,7 +661,7 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Добавлено слов:.
+        ///   Ищет локализованную строку, похожую на Добавлено слов.
         /// </summary>
         public static string TotalAddedWords {
             get {
@@ -493,7 +670,16 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Выучено слов: .
+        ///   Ищет локализованную строку, похожую на Полученный опыт.
+        /// </summary>
+        public static string TotalExpInTest {
+            get {
+                return ResourceManager.GetString("TotalExpInTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выучено слов.
         /// </summary>
         public static string TotalLernedWords {
             get {
@@ -516,16 +702,6 @@ namespace Coursework.Properties {
         public static string UserWithoutCollections {
             get {
                 return ResourceManager.GetString("UserWithoutCollections", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap UserWithoutPhoto {
-            get {
-                object obj = ResourceManager.GetObject("UserWithoutPhoto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

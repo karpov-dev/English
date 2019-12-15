@@ -10,6 +10,7 @@
         xmlns:TestV="clr-namespace:Coursework.Views.Tests"
         xmlns:TestVM="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager"
         xmlns:TestTypes="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes"
+        xmlns:tests="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests"
         xmlns:local="clr-namespace:Coursework.Views"
         mc:Ignorable="d"
         Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
@@ -42,6 +43,11 @@
         <DataTemplate DataType="{x:Type TestTypes:SpellingType}">
             <TestV:SpellingTypePage/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type tests:SessionResultPage}">
+            <TestV:SessionResults/>
+        </DataTemplate>
+        
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 

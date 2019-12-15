@@ -12,31 +12,21 @@ using Coursework.Models.Classes.User.Statistics;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
-    abstract class TestBase : Event
+    static class Test
     {
-        protected Random _random;
-        protected OneCollection _currentCollection;
-        protected ObservableCollection<OneCollection> _collections;
-
-        public TestBase(ObservableCollection<OneCollection> userCollections)
-        {
-            _random = new Random();
-            _collections = userCollections;
-        }
-
-        protected OneCollection SetRandomCurrentCollection(ObservableCollection<OneCollection> collections)
+        static public OneCollection SetRandomCurrentCollection(Random random, ObservableCollection<OneCollection> collections)
         {
             OneCollection randomCollection;
-            randomCollection = collections[_random.Next(0, collections.Count)];
+            randomCollection = collections[random.Next(0, collections.Count)];
             return randomCollection;
         }
-        protected OneWordPair GetWordPair(OneCollection collections)
+        static public OneWordPair GetWordPair(Random random, OneCollection collection)
         {
-            int amountWords = _currentCollection.AmountWords;
-            int randomWordPairIndex = _random.Next(0, amountWords);
-            return _currentCollection.WordPair[randomWordPairIndex];
+            int amountWords = collection.AmountWords;
+            int randomWordPairIndex = random.Next(0, amountWords);
+            return collection.WordPair[randomWordPairIndex];
         }
-        protected List<OneWordPair> GetWordPairs(int amount, OneCollection collection)
+        static public List<OneWordPair> GetWordPairs(Random random, int amount, OneCollection collection)
         {
             List<OneWordPair> listOfWords = new List<OneWordPair>();
             for ( int i = 0; i < amount; i++ )
@@ -46,7 +36,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 do
                 {
                     checkRepetition = false;
-                    wordPair = GetWordPair(collection);
+                    wordPair = GetWordPair(random, collection);
                     for ( int j = 0; j < listOfWords.Count; j++ )
                     {
                         if ( wordPair == listOfWords[j] )
@@ -60,10 +50,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
             }
             return listOfWords;
         }
-        protected OneWordPair GetRandomAnswer(List<OneWordPair> wordPairs)
+        static public OneWordPair GetRandomAnswer(Random random, List<OneWordPair> wordPairs)
         {
             OneWordPair RightAnswer;
-            RightAnswer = wordPairs[_random.Next(0, wordPairs.Count)];
+            RightAnswer = wordPairs[random.Next(0, wordPairs.Count)];
             return RightAnswer;
         }
     }

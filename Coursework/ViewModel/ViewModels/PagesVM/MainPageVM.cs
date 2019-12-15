@@ -27,6 +27,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
             }
         }
 
+
         public ObservableCollection<OneCollection> UserCollections => _currentUser.Collections.GetCollections();
         public OneCollection SelectedCollection
         {
@@ -38,22 +39,72 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                 OnPropertyChanged("EditButtonEnabled");
             }
         }
+
+
         public string UserName => _currentUser.Information.Name;
-        public UserStatistics UserStatistic => _currentUser.Statistics;
-        public bool EditButtonEnabled
+        public UserStatistics TotalUserStatistic => _currentUser.Statistics;
+        public StatisticsForTheDay CurrentDayStatistics => _currentUser.Statistics.DayStatistics();
+        public string UserImagePath
         {
             get
             {
-                if(_selectedCollection != null)
+                int numberOfImage = 0;
+                string imagePath = null;
+                if ( _currentUser.Statistics.CurrentLevel > 0 && _currentUser.Statistics.CurrentLevel <= 3 )
+                    numberOfImage = 1;
+                if ( _currentUser.Statistics.CurrentLevel > 3 && _currentUser.Statistics.CurrentLevel <= 7 )
+                    numberOfImage = 2;
+                if ( _currentUser.Statistics.CurrentLevel > 7 && _currentUser.Statistics.CurrentLevel <= 10 )
+                    numberOfImage = 3;
+                if ( _currentUser.Statistics.CurrentLevel > 10 && _currentUser.Statistics.CurrentLevel <= 15 )
+                    numberOfImage = 4;
+                if ( _currentUser.Statistics.CurrentLevel > 15 && _currentUser.Statistics.CurrentLevel <= 25 )
+                    numberOfImage = 5;
+                if ( _currentUser.Statistics.CurrentLevel > 25 && _currentUser.Statistics.CurrentLevel <= 30 )
+                    numberOfImage = 6;
+                
+                switch(numberOfImage)
                 {
-                    return true;
+                    case 1:
+                        {
+                            imagePath = "pack://application:,,,/Resources/scout.png";
+                            break;
+                        }
+                    case 2:
+                        {
+                            imagePath = "pack://application:,,,/Resources/explorer.png";
+                            break;
+                        }
+                    case 3:
+                        {
+                            imagePath = "pack://application:,,,/Resources/adventurer.png";
+                            break;
+                        }
+                    case 4:
+                        {
+                            imagePath = "pack://application:,,,/Resources/mountaineer.png";
+                            break;
+                        }
+                    case 5:
+                        {
+                            imagePath = "pack://application:,,,/Resources/expeditioner.png";
+                            break;
+                        }
+                    case 6:
+                        {
+                            imagePath = "pack://application:,,,/Resources/ranger.png";
+                            break;
+                        }
+                    default:
+                        {
+                            imagePath = "pack://application:,,,/Resources/scout.png";
+                            break;
+                        }
                 }
-                else
-                {
-                    return false;
-                }
+                return imagePath;
             }
         }
+
 
         public RelayCommand AddNewCollection
         {
@@ -106,6 +157,20 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                             InformationMessage(Properties.Resources.WithoutCheckedCollections);
                         }
                     }));
+            }
+        }
+        public bool EditButtonEnabled
+        {
+            get
+            {
+                if ( _selectedCollection != null )
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 

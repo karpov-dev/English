@@ -1,50 +1,61 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Threading;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Coursework.Models;
 using Coursework.Models.Classes.Events;
 using Coursework.Models.Classes.Commands;
 using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
-using Coursework.ViewModel.ViewModels.VM;
-using Coursework.Models.Classes.User.Statistics;
+using Coursework.Models.Classes.Test;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
-    class OptionType : TestBase
+    class OptionType : Event
     {
         private const int AmointButtons = 4;
+        private const int SecondsToNextTest = 1;
 
         private TestManager _owner;
-        private UserStatistics _statistic;
+        private OneSessionStatistics _oneSessionStatistics;
+        private OneCollection _currentCollection;
+        private ObservableCollection<OneCollection> _collections;
+        private OneWordPair _rightWordPair;
 
-        private string _word;
-        private string _translation;
+        private Random _random;
+        private Visibility _timerVisibility;
+        private DispatcherTimer _timer;
+        private int _timerToNextPage;
+
         private string _topLeft;
         private string _topRight;
         private string _bottomLeft;
         private string _bottomRight;
+        private string _rightOutput;
 
         private RelayCommand _backButton;
         private RelayCommand _checkResult;
 
 
-        public OptionType (UserStatistics userStatistics, ObservableCollection<OneCollection> userCollections, TestManager owner)
-            : base(userCollections)
+        public OptionType (Random random, ObservableCollection<OneCollection> userCollections, 
+            TestManager owner, OneSessionStatistics oneSessionStatistics)
         {
+            _timerVisibility = Visibility.Hidden;
+            _oneSessionStatistics = oneSessionStatistics;
+            _random = random;
+            _collections = userCollections;
             _owner = owner;
-            _statistic = userStatistics;
             UpdateTest();
         }
 
 
         public string Word
         {
-            get => _word;
+            get => _rightWordPair.Word;
             set
             {
-                _word = value;
+                _rightWordPair.Word = value;
                 OnPropertyChanged("Word");
             }
         }
@@ -84,6 +95,33 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("BottomRight");
             }
         }
+        public string RightOutput
+        {
+            get => _rightOutput;
+            set
+            {
+                _rightOutput = value;
+                OnPropertyChanged("RightOutput");
+            }
+        }
+        public int Timer
+        {
+            get => _timerToNextPage;
+            set
+            {
+                _timerToNextPage = value;
+                OnPropertyChanged("Timer");
+            }
+        }
+        public Visibility TimerVisibility
+        {
+            get => _timerVisibility;
+            set
+            {
+                _timerVisibility = value;
+                OnPropertyChanged("TimerVisibility");
+            }
+        }
 
 
         public RelayCommand CheckResult
@@ -92,7 +130,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 (_checkResult = new RelayCommand(obj =>
                  {
                      string result = obj as string;
-                     if(result == _translation)
+                     if(result == _rightWordPair.Translation)
                      {
                          RightResult();
                      }
@@ -107,30 +145,43 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
             get => _backButton ??
                 ( _backButton = new RelayCommand(obj =>
                  {
-                     _owner.Manager.CurrentViewModel = _owner;
+                     _owner.BackAndClean();
                  }));
         }
 
 
-        private void RightResult()
-        {
-            int amountExp = _translation.Length;
-            _statistic.LearnedWords();
-            _statistic.Experience(amountExp);
-            UpdateTest();
-        }
         private void WrongResult()
         {
-
+            UpdateStatistics(false);
+        }
+        private void RightResult()
+        {
+            RightOutput = _owner.RightOutput();
+            TimerVisibility = Visibility.Visible;
+            UpdateStatistics(true);
+            GoToTheNextTest();
+        }
+        private void UpdateStatistics(bool result)
+        {
+            if(result)
+            {
+                _rightWordPair.AmountRepetiotion++;
+                _oneSessionStatistics.UpdateOneWordStatistic(_rightWordPair);
+                _oneSessionStatistics.AddExp(_rightWordPair);
+            }
+            else
+            {
+                _oneSessionStatistics.AddAmountErrors();
+                _rightWordPair.AmountErrors++;
+            }
+            
         }
         private void UpdateTest()
         {
             List<OneWordPair> WordPairs;
-            OneWordPair _rightWordPair;
-            _currentCollection = SetRandomCurrentCollection(_collections);
-            WordPairs = GetWordPairs(AmointButtons, _currentCollection);
-            _rightWordPair = GetRandomAnswer(WordPairs);
-            _translation = _rightWordPair.Translation;
+            _currentCollection = Test.SetRandomCurrentCollection(_random, _collections);
+            WordPairs = Test.GetWordPairs(_random, AmointButtons, _currentCollection);
+            _rightWordPair = Test.GetRandomAnswer(_random, WordPairs);
             Word = _rightWordPair.Word;
             TopLeft = SetForButton(WordPairs);
             TopRight = SetForButton(WordPairs);
@@ -148,6 +199,23 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 wordPairs.Remove(wordPair);
             }
             return button;
+        }
+        private void GoToTheNextTest()
+        {
+            Timer = SecondsToNextTest;
+            _timer = new DispatcherTimer();
+            _timer.Tick += new EventHandler(TimerTick);
+            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Start();
+        }
+        private void TimerTick(object sender, EventArgs e)
+        {
+            Timer--;
+            if ( Timer < 0 )
+            {
+                _timer.Stop();
+                _owner.NextTest();
+            }
         }
     }
 }

@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +59,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\Classes\Commands\RelayCommand.cs" />
     <Compile Include="Models\Classes\Events\Event.cs" />
+    <Compile Include="Models\Classes\Test\OneSessionStatistics.cs" />
     <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
     <Compile Include="Models\Classes\User\Achievements\OneAchievement.cs" />
     <Compile Include="Models\Classes\User\Information\UserInformation.cs" />
@@ -75,10 +77,11 @@
     <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\SessionResultPage.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestsManager\TestManager.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\OptionType.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\SpellingType.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\TestBase.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\Test.cs" />
     <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
     <Compile Include="ViewModel\MangerOfNavigate\NavigateManager.cs" />
@@ -109,6 +112,9 @@
     </Compile>
     <Compile Include="Views\Tests\SelectTestPage.xaml.cs">
       <DependentUpon>SelectTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tests\SessionResults.xaml.cs">
+      <DependentUpon>SessionResults.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tests\SpellingTypePage.xaml.cs">
       <DependentUpon>SpellingTypePage.xaml</DependentUpon>
@@ -141,6 +147,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Tests\SessionResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Tests\SpellingTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,12 +173,29 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\ranger.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\adventurer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\expeditioner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\scout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\explorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\mountaineer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
