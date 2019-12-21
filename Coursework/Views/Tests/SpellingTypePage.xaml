@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <Grid Background="White">
+    <Grid Background="{StaticResource MainBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition Width="0.5*"/>
@@ -19,7 +19,7 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.25*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Column="1" Grid.Row="1" Background="Beige">
+        <Grid Grid.Column="1" Grid.Row="1" Background="{StaticResource SpellingType}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.7*"/>
@@ -34,7 +34,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Content="Озвучить" FontSize="20" Command="{Binding Speak}"/>
+                    <Button Grid.Column="0" Content="Озвучить" FontSize="20" Command="{Binding Speak}" Style="{StaticResource Button}"
+                            Grid.ColumnSpan="3"/>
                 </Grid>
                 <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
                     <TextBlock Text="{Binding TextResult}" HorizontalAlignment="Center" FontSize="20" Foreground="ForestGreen"
@@ -55,8 +56,9 @@
                 </StackPanel>
             </Grid>
         </Grid>
-        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom">
-            <Button Content="{x:Static res:Resources.ExitButton}" Command="{Binding BackButton}" FontSize="20"/>
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Bottom" Grid.ColumnSpan="3">
+            <Button Content="{x:Static res:Resources.ExitButton}" Command="{Binding BackButton}" FontSize="20"
+                    Style="{StaticResource Button}"/>
         </StackPanel>
     </Grid>
     

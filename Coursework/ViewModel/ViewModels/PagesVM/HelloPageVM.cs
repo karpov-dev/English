@@ -9,9 +9,9 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
     class HelloPageVM : NavigateVM
     {
         private RelayCommand _nextButton;
-        private UserInformation _userInformation;
+        private Settings _userInformation;
 
-        public HelloPageVM(UserInformation userInformation, string viewModelName, NavigateManager navigateManager) : base(viewModelName, navigateManager)
+        public HelloPageVM(Settings userInformation, string viewModelName, NavigateManager navigateManager) : base(viewModelName, navigateManager)
         {
             _userInformation = userInformation;
         }

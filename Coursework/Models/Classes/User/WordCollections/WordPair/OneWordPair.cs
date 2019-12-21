@@ -4,7 +4,7 @@ using Coursework.Models.Classes.Events;
 namespace Coursework.Models.Classes.User.WordCollections.WordPair
 {
     [Serializable]
-    class OneWordPair : Event
+    class OneWordPair : Event, ICloneable
     {
         private string _word;
         private string _translation;
@@ -67,6 +67,17 @@ namespace Coursework.Models.Classes.User.WordCollections.WordPair
                 _learned = value;
                 OnPropertyChanged("Learned");
             }
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+        public void Swap()
+        {
+            string temp = Translation;
+            Translation = Word;
+            Word = temp;
         }
     }
 }

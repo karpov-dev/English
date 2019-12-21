@@ -1,6 +1,6 @@
 ﻿using Coursework.ViewModel.NavigateBase;
 using Coursework.ViewModel.ViewModels.PagesVM;
-using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
+using Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings;
 using Coursework.Models;
 
 namespace Coursework.ViewModel.MangerOfNavigate
@@ -11,7 +11,8 @@ namespace Coursework.ViewModel.MangerOfNavigate
         public NavigateManager()
         {
             CurrentUser = new User();
-            AddViewModel(new MainPageVM("MainPageVM", this));
+            AddViewModel(new MainPageVM("MainPageVM", this, CurrentUser));
+            AddViewModel(new AppSettings("Settings", this, CurrentUser));
         }
 
         public object CurrentViewModel

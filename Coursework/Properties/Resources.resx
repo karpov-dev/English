@@ -151,11 +151,20 @@
   <data name="AmountRepitedWordsInTest" xml:space="preserve">
     <value>Количество повторённых слов</value>
   </data>
+  <data name="AmountTests" xml:space="preserve">
+    <value>Количество тестов в задании </value>
+  </data>
+  <data name="AmountTestsDescription" xml:space="preserve">
+    <value>Устанавливает количество тестов в задании </value>
+  </data>
   <data name="AmountTime" xml:space="preserve">
     <value>Затраченное время </value>
   </data>
   <data name="AmountWrongsInTest" xml:space="preserve">
     <value>Количество ошибок </value>
+  </data>
+  <data name="ApplicationSettings" xml:space="preserve">
+    <value>Общее</value>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Название приложения </value>
@@ -187,11 +196,32 @@
   <data name="DayExp" xml:space="preserve">
     <value>Получено опыта</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DeleteAll" xml:space="preserve">
+    <value>Начать заново </value>
+  </data>
+  <data name="DeleteAllCollections" xml:space="preserve">
+    <value>Удалить все коллекции </value>
+  </data>
+  <data name="DeleteAllCollectionsDescription" xml:space="preserve">
+    <value>Удаляет все ваши коллекции сохраняя вашу статистику и прогресс</value>
+  </data>
+  <data name="DeleteAllDescription" xml:space="preserve">
+    <value>Обнуляет статистику, удаляет коллекции, прогресс и сбивает настройки до начальных</value>
+  </data>
   <data name="DeleteCollection" xml:space="preserve">
     <value>Удалить подборку</value>
   </data>
   <data name="DeleteSelectedCollections" xml:space="preserve">
     <value>Удалить выбранные подборки</value>
+  </data>
+  <data name="DeleteStatistics" xml:space="preserve">
+    <value>Сбросить статистику</value>
+  </data>
+  <data name="DeleteStatisticsDescription" xml:space="preserve">
+    <value>Обнуляет вашу статистику, при этом оставляя ваши коллекции и прогресс </value>
   </data>
   <data name="Delightfully" xml:space="preserve">
     <value>Восхитительно!</value>
@@ -232,6 +262,9 @@
   <data name="ForTheDay" xml:space="preserve">
     <value>За день</value>
   </data>
+  <data name="FullTest" xml:space="preserve">
+    <value>Использовать тесты с обратными переводами </value>
+  </data>
   <data name="GameModeButton" xml:space="preserve">
     <value>Игровой режим</value>
   </data>
@@ -246,6 +279,9 @@
   </data>
   <data name="HelloFriend" xml:space="preserve">
     <value>Привет, друг</value>
+  </data>
+  <data name="HelpTab" xml:space="preserve">
+    <value>Помощь </value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Информация</value>
@@ -277,11 +313,23 @@
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>Нет</value>
+  </data>
   <data name="ranger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ranger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RemovePair" xml:space="preserve">
     <value>Удалить связку</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Сбросить </value>
+  </data>
+  <data name="ResetSettings" xml:space="preserve">
+    <value>Сбросить настройки </value>
+  </data>
+  <data name="ResetSettingsDescription" xml:space="preserve">
+    <value>Устанавливает настройки по умолчанию. Прогресс и подборки останутся </value>
   </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Сохранить</value>
@@ -304,6 +352,9 @@
   <data name="SessionResult" xml:space="preserve">
     <value>Результаты теста</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки </value>
+  </data>
   <data name="ShotStatistics" xml:space="preserve">
     <value>Краткая статистика</value>
   </data>
@@ -313,8 +364,17 @@
   <data name="SpellingTypeDescription" xml:space="preserve">
     <value>Вам будет давно слово. Необходимо правильно написать его перевод </value>
   </data>
+  <data name="TestSettings" xml:space="preserve">
+    <value>Тесты </value>
+  </data>
   <data name="TheoryButton" xml:space="preserve">
     <value>Теория</value>
+  </data>
+  <data name="TimeToNextTest" xml:space="preserve">
+    <value>Время перехода между тестами </value>
+  </data>
+  <data name="TimeToNextTestDescription" xml:space="preserve">
+    <value>Устанавливает время, которое проходит между выполнениями тестов </value>
   </data>
   <data name="TotalAddedWords" xml:space="preserve">
     <value>Добавлено слов</value>
@@ -351,5 +411,8 @@
   </data>
   <data name="WordsTypeDescription" xml:space="preserve">
     <value>Вам будет дано слово и четыре варианта ответа, один из которых будет правильный</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Да</value>
   </data>
 </root>

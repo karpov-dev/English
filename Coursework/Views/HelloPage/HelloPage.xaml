@@ -20,15 +20,18 @@
             <Setter Property="FontSize" Value="15"/>
         </Style>
     </UserControl.Resources>
-    
-    <Grid Background="AliceBlue">
+
+    <Grid Background="{StaticResource MainBackground}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{x:Static res:Resources.ApplicationTitle}" FontSize="25"/>
-        <Grid Grid.Row="1">
+        <StackPanel Background="{StaticResource PageTitle}">
+            <TextBlock Text="{x:Static res:Resources.ApplicationTitle}" Foreground="{StaticResource TextColor}" 
+                       Style="{StaticResource PageTitleStyle}"/>
+        </StackPanel>
+        <Grid Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="auto"/>
@@ -36,11 +39,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" VerticalAlignment="Center">
-                <TextBlock Text="{x:Static res:Resources.WhatIsYourName}"/>
-                <TextBox Text="{Binding UserName}" Width="300"/>
-                <Button Content="{x:Static res:Resources.Next}" Command="{Binding NextCommand}" Width="100"/>
+                <TextBlock Text="{x:Static res:Resources.WhatIsYourName}" Foreground="{StaticResource TextColor}"/>
+                <TextBox Text="{Binding UserName}" Width="300" FontSize="20" MaxLength="10"/>
+                <Button Content="{x:Static res:Resources.Next}" Command="{Binding NextCommand}" Width="120" Style="{StaticResource Button}"/>
             </StackPanel>
         </Grid>
-        <Button Grid.Row="2" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}"/>
+        <Button Grid.Row="2" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}" Style="{StaticResource Button}"/>
     </Grid>
 </UserControl>

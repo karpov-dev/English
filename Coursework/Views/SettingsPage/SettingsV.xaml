@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="Coursework.Views.SettingsPage.SettingsV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:Coursework.Properties"
+             xmlns:local="clr-namespace:Coursework.Views.SettingsPage"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <Grid Background="{StaticResource MainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.9*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource PageTitle}">
+                <TextBlock Text="{x:Static res:Resources.Settings}" Foreground="{StaticResource TextColor}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                           Style="{StaticResource PageTitleStyle}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <StackPanel  Background="{StaticResource PagePoints}">
+                    <TextBlock Text="{x:Static res:Resources.ApplicationSettings}" Style="{StaticResource ResourceKey=SettingTitle}"
+                       Foreground="{StaticResource TextColor}" Grid.Row="1" Grid.Column="0"/>
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock Text="{x:Static res:Resources.DeleteAllCollections}" Style="{StaticResource ResourceKey=Settings}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <TextBlock Text="{x:Static res:Resources.DeleteAllCollectionsDescription}" Style="{StaticResource ResourceKey=SettingsDescription}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <Button Content="{x:Static res:Resources.Delete}" Style="{StaticResource DeleteButton}" 
+                            Command="{Binding DeleteAllCollections}" IsEnabled="{Binding DeleteAllCollectionsEnabled}" Height="22" Width="400"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="{x:Static res:Resources.DeleteStatistics}" Style="{StaticResource ResourceKey=Settings}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <TextBlock Text="{x:Static res:Resources.DeleteStatisticsDescription}" Style="{StaticResource ResourceKey=SettingsDescription}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <Button Content="{x:Static res:Resources.Reset}" Style="{StaticResource DeleteButton}" 
+                            Command="{Binding DeleteStatistics}" Height="22" Width="400"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="{x:Static res:Resources.DeleteAll}" Style="{StaticResource ResourceKey=Settings}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <TextBlock Text="{x:Static res:Resources.DeleteAllDescription}" Style="{StaticResource ResourceKey=SettingsDescription}"
+                               Foreground="{StaticResource TextColor}"/>
+                    <Button Content="{x:Static res:Resources.Delete}" Style="{StaticResource DeleteButton}" 
+                            Command="{Binding DeleteProgress}" Height="22" Width="400"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="{x:Static res:Resources.ResetSettings}" Style="{StaticResource ResourceKey=Settings}"/>
+                    <TextBlock Text="{x:Static res:Resources.ResetSettingsDescription}" Style="{StaticResource ResourceKey=SettingsDescription}"/>
+                    <Button Content="{x:Static res:Resources.Reset}" Style="{StaticResource DeleteButton}" Command="{Binding ResetSettings}"
+                     Height="22" Width="400"/>
+                </StackPanel>
+            </StackPanel>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.ColumnSpan="2" Background="{StaticResource PagePoints}">
+                    <TextBlock Text="{x:Static res:Resources.TestSettings}" Style="{StaticResource SettingTitle}"/>
+                </StackPanel>
+                <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBlock Text="{x:Static res:Resources.AmountTests}" Style="{StaticResource Settings}" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{x:Static res:Resources.TimeToNextTest}" Style="{StaticResource Settings}" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{x:Static res:Resources.FullTest}" Style="{StaticResource Settings}"/>
+                </StackPanel>
+                <StackPanel DataContext="{Binding GetSettings}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left">
+                    <TextBox Text="{Binding AmountTests}" Style="{StaticResource SmallTextBox}"/>
+                    <TextBox Text="{Binding NextTestTime}" Style="{StaticResource SmallTextBox}"/>
+                    <CheckBox IsChecked="{Binding FullTest, UpdateSourceTrigger=PropertyChanged}" Margin="22"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="{x:Static res:Resources.Cancel}" Style="{StaticResource Button}" 
+                    Command="{Binding BackButton}" Grid.Column="0" Grid.ColumnSpan="2"/>
+        </Grid>
+    </Grid>
+</UserControl>

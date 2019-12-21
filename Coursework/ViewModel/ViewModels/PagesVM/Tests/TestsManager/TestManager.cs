@@ -12,7 +12,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
 {
     class TestManager : NavigateVM
     {
-        private const int AmointTests = 10;
         private const int AmountTypes = 2;
 
         private User _currentUser;
@@ -23,6 +22,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
         private ObservableCollection<object> _tests;
         private ObservableCollection<string> _rightOutputs;
         private int _currentTest;
+        private int _amountTests;
 
         private RelayCommand _backButton;
         private RelayCommand _optionTypeButton;
@@ -35,6 +35,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
             SetRightOutputs();
             _currentUser = user;
             _currentTest = 0;
+            _amountTests = user.Information.AmountTests;
             _selectedCollections = GetSelectedCollections(_currentUser.Collections.GetCollections());
         }
 
@@ -86,10 +87,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
                      {
                          _tests = new ObservableCollection<object>();
                          _oneSessionStatistics = new OneSessionStatistics();
-                         for ( int i = 0; i < AmointTests; i++ )
+                         for ( int i = 0; i < _amountTests; i++ )
                          {
                              _random = new Random(DateTime.Now.Millisecond + i);
-                             _tests.Add(new OptionType(_random, _selectedCollections, this, _oneSessionStatistics));
+                             AddOptionTypeTest();
                          }
                          NextTest();
                      }));
@@ -104,10 +105,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
                      {
                          _tests = new ObservableCollection<object>();
                          _oneSessionStatistics = new OneSessionStatistics();
-                         for (int i = 0; i < AmointTests; i++ )
+                         for (int i = 0; i < _amountTests; i++ )
                          {
                              _random = new Random(DateTime.Now.Millisecond + i);
-                             _tests.Add(new SpellingType(_random, _selectedCollections, this, _oneSessionStatistics));
+                             AddSpellingTypeTest();
                          }
                          NextTest();
                      }));
@@ -122,7 +123,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
                      {
                          _tests = new ObservableCollection<object>();
                          _oneSessionStatistics = new OneSessionStatistics();
-                         for (int i = 0; i < AmointTests; i++ )
+                         for (int i = 0; i < _amountTests; i++ )
                          {
                              _random = new Random(DateTime.Now.Millisecond + i);
                              int type = _random.Next(AmountTypes);
@@ -130,12 +131,12 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
                              {
                                  case 0:
                                      {
-                                         _tests.Add(new OptionType(_random, _selectedCollections, this, _oneSessionStatistics));
+                                         AddOptionTypeTest();
                                          break;
                                      }
                                  case 1:
                                      {
-                                         _tests.Add(new SpellingType(_random, _selectedCollections, this, _oneSessionStatistics));
+                                         AddSpellingTypeTest();
                                          break;
                                      }
                              }
@@ -166,6 +167,14 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
             _rightOutputs.Add(Properties.Resources.VeryGood);
             _rightOutputs.Add(Properties.Resources.KeepItUp);
             _rightOutputs.Add(Properties.Resources.Delightfully);
+        }
+        private void AddSpellingTypeTest()
+        {
+            _tests.Add(new SpellingType(_random, _selectedCollections, this, _oneSessionStatistics, _currentUser.Information));
+        }
+        private void AddOptionTypeTest()
+        {
+            _tests.Add(new OptionType(_random, _selectedCollections, this, _oneSessionStatistics, _currentUser.Information));
         }
     }
 }

@@ -23,7 +23,7 @@
         </Style>
     </UserControl.Resources>
     
-    <Grid Background="White">
+    <Grid Background="{StaticResource MainBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.25*"/>
             <ColumnDefinition Width="0.5*"/>
@@ -36,7 +36,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="{x:Static res:Resources.SessionResult}" FontSize="40" HorizontalAlignment="Center"
                    VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0"/>
-        <Grid Grid.Column="1" Grid.Row="1" Background="Bisque">
+        <Grid Grid.Column="1" Grid.Row="1" Background="{StaticResource SecondMainBackground}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.9*"/>
                 <RowDefinition Height="0.1*"/>
@@ -67,7 +67,8 @@
                     </StackPanel>
                 </Grid>
             </StackPanel>
-            <Button Content="{x:Static res:Resources.Menu}" Command="{Binding BackButton}" Grid.Row="1" Margin="10"/>
+            <Button Content="{x:Static res:Resources.Menu}" Command="{Binding BackButton}" Grid.Row="1"
+                    Style="{StaticResource Button}"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -6,6 +6,9 @@ using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.Statistics;
+using Coursework.ViewModel.ViewModels.PagesVM.Notification;
+using Coursework.Views.Notification;
+using Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM
 {
@@ -16,11 +19,12 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
         private RelayCommand _deleteCollectionCommand;
         private RelayCommand _editCollectionCommand;
         private RelayCommand _goToTest;
+        private RelayCommand _settingsCommand;
         private OneCollection _selectedCollection;
 
-        public MainPageVM(string viewModelName, NavigateManager manager) : base(viewModelName, manager)
+        public MainPageVM(string viewModelName, NavigateManager manager, User user) : base(viewModelName, manager)
         {
-            _currentUser = new User();
+            _currentUser = user;
             if(_currentUser.Information.Name == null)
             {
                 Manager.CurrentViewModel = new HelloPageVM(_currentUser.Information, "HelloPageVM", manager);
@@ -159,6 +163,19 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                     }));
             }
         }
+        public RelayCommand Settings
+        {
+            get
+            {
+                return _settingsCommand ??
+                    (_settingsCommand = new RelayCommand(obj =>
+                     {
+                         Manager.GoTo("Settings");
+                     }));
+            }
+        }
+
+
         public bool EditButtonEnabled
         {
             get

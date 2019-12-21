@@ -22,7 +22,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Background="{StaticResource MainBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -44,13 +44,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.ColumnSpan="2" Content="{x:Static res:Resources.LearningButton}"
-                    Command="{Binding GoToTest}"/>
-            <Button Grid.Column="2" Content="{x:Static res:Resources.GameModeButton}" Grid.ColumnSpan="3"/>
-            <Button Grid.Column="5" Content="{x:Static res:Resources.TheoryButton}"/>
-            <Button Grid.Column="6" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}"/>
+            <Button Grid.Column="0" Content="{x:Static res:Resources.LearningButton}"
+                    Command="{Binding GoToTest}" Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="1" Content="{x:Static res:Resources.TheoryButton}" Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="2" Content="{x:Static res:Resources.GameModeButton}" Grid.ColumnSpan="3" Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="5" Content="{x:Static res:Resources.Settings}" Command="{Binding Settings}" Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="6" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}" Style="{StaticResource MainMenuButton}"/>
         </Grid>
-        <StackPanel Grid.Row="1" Grid.Column="0" Background="AliceBlue">
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="{StaticResource UserPanel}">
             <DockPanel HorizontalAlignment="Center">
                 <TextBlock Text="{x:Static res:Resources.Hello}" FontSize="30"/>
                 <TextBlock Text=", " FontSize="30"/>
@@ -91,25 +92,28 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock Text="{x:Static res:Resources.Collections}" FontSize="25"/>
+                <StackPanel Background="{StaticResource PageTitle}">
+                    <TextBlock Text="{x:Static res:Resources.Collections}" FontSize="25"/>
+                </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Content="{x:Static res:Resources.AddCollectionButton}" Command="{Binding AddNewCollection}" />
-                    <Button Grid.Column="1" Content="{x:Static res:Resources.DeleteCollection}" Command="{Binding DeleteCollection}"
-                            CommandParameter="{Binding SelectedCollection}"/>
-                    <Button Grid.Column="2" Content="{x:Static res:Resources.Edit}" IsEnabled="{Binding EditButtonEnabled}" Command="{Binding EditCollectionCommand}" 
-                            CommandParameter="{Binding SelectedCollection}"/>
+                    <Button Grid.Column="0" Content="{x:Static res:Resources.AddCollectionButton}" Command="{Binding AddNewCollection}" 
+                            Style="{StaticResource Button}"/>
+                    <Button Grid.Column="2" Content="{x:Static res:Resources.DeleteCollection}" Command="{Binding DeleteCollection}"
+                            CommandParameter="{Binding SelectedCollection}" Style="{StaticResource DeleteButton}" IsEnabled="{Binding EditButtonEnabled}"/>
+                    <Button Grid.Column="1" Content="{x:Static res:Resources.Edit}" IsEnabled="{Binding EditButtonEnabled}" Command="{Binding EditCollectionCommand}" 
+                            CommandParameter="{Binding SelectedCollection}" Style="{StaticResource Button}"/>
                 </Grid>
             </StackPanel>
             <ListBox ItemsSource="{Binding UserCollections}" SelectedItem="{Binding SelectedCollection}" HorizontalContentAlignment="Stretch" 
-                     Grid.Row="1">
+                     Grid.Row="1" Background="{StaticResource CollectionsBackground}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid Background="Azure">
+                        <Grid Background="{StaticResource OneCollectionBackground}">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -130,7 +134,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-        <StackPanel Grid.Row="1" Grid.Column="3" Background="Bisque">
+        <StackPanel Grid.Row="1" Grid.Column="3" Background="{StaticResource StatisticPanel}">
             <StackPanel DataContext="{Binding CurrentDayStatistics}" Margin="20">
                 <TextBlock Text="{x:Static res:Resources.ShotStatistics}" FontSize="25"/>
                 <TextBlock Text="{x:Static res:Resources.ForTheDay}" FontSize="22"/>

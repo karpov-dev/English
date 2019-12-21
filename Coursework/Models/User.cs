@@ -13,7 +13,7 @@ namespace Coursework.Models
     {
         private const string _dataFileName = "data.bin";
 
-        public UserInformation Information;
+        public Settings Information;
         public UserStatistics Statistics;
         public Achievements Achievements;
         public WordCollection Collections;
@@ -24,10 +24,22 @@ namespace Coursework.Models
             Statistics = new UserStatistics();
             Achievements = new Achievements();
             Collections = new WordCollection();
-            Information = new UserInformation();
+            Information = new Settings();
 
             System.Windows.Application.Current.Exit += Serialization;
             Deserialization();
+        }
+        
+        public void Clear()
+        {
+            if( File.Exists(_dataFileName))
+            {
+                File.Delete(_dataFileName);
+            }
+            Statistics.ClearStatistics();
+            Collections.DeleteAllCollections();
+            Information.Reset();
+            Information.Name = "";
         }
 
         private void Serialization(object sender, System.Windows.ExitEventArgs e)
@@ -51,9 +63,10 @@ namespace Coursework.Models
                     Statistics = (UserStatistics) formatter.Deserialize(stream);
                     Achievements = (Achievements) formatter.Deserialize(stream);
                     Collections = (WordCollection) formatter.Deserialize(stream);
-                    Information = (UserInformation) formatter.Deserialize(stream);
+                    Information = (Settings) formatter.Deserialize(stream);
                 }
             }
         }
+
     }
 }

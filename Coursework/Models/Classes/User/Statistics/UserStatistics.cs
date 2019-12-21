@@ -149,6 +149,13 @@ namespace Coursework.Models.Classes.User.Statistics
         }
 
 
+        public void ClearStatistics()
+        {
+            _daysStatistics.Clear();
+            _daysStatistics.Add(new StatisticsForTheDay(DateTime.Today));
+        }
+
+
         private void CheckDate(int currentDay)
         {
             if (_daysStatistics != null && _daysStatistics.Count > 0)

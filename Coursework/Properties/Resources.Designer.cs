@@ -161,6 +161,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Количество тестов в задании .
+        /// </summary>
+        public static string AmountTests {
+            get {
+                return ResourceManager.GetString("AmountTests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Устанавливает количество тестов в задании .
+        /// </summary>
+        public static string AmountTestsDescription {
+            get {
+                return ResourceManager.GetString("AmountTestsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Затраченное время .
         /// </summary>
         public static string AmountTime {
@@ -175,6 +193,15 @@ namespace Coursework.Properties {
         public static string AmountWrongsInTest {
             get {
                 return ResourceManager.GetString("AmountWrongsInTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Общее.
+        /// </summary>
+        public static string ApplicationSettings {
+            get {
+                return ResourceManager.GetString("ApplicationSettings", resourceCulture);
             }
         }
         
@@ -269,6 +296,51 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Начать заново .
+        /// </summary>
+        public static string DeleteAll {
+            get {
+                return ResourceManager.GetString("DeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить все коллекции .
+        /// </summary>
+        public static string DeleteAllCollections {
+            get {
+                return ResourceManager.GetString("DeleteAllCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удаляет все ваши коллекции сохраняя вашу статистику и прогресс.
+        /// </summary>
+        public static string DeleteAllCollectionsDescription {
+            get {
+                return ResourceManager.GetString("DeleteAllCollectionsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обнуляет статистику, удаляет коллекции, прогресс и сбивает настройки до начальных.
+        /// </summary>
+        public static string DeleteAllDescription {
+            get {
+                return ResourceManager.GetString("DeleteAllDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить подборку.
         /// </summary>
         public static string DeleteCollection {
@@ -283,6 +355,24 @@ namespace Coursework.Properties {
         public static string DeleteSelectedCollections {
             get {
                 return ResourceManager.GetString("DeleteSelectedCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сбросить статистику.
+        /// </summary>
+        public static string DeleteStatistics {
+            get {
+                return ResourceManager.GetString("DeleteStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обнуляет вашу статистику, при этом оставляя ваши коллекции и прогресс .
+        /// </summary>
+        public static string DeleteStatisticsDescription {
+            get {
+                return ResourceManager.GetString("DeleteStatisticsDescription", resourceCulture);
             }
         }
         
@@ -406,6 +496,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Использовать тесты с обратными переводами .
+        /// </summary>
+        public static string FullTest {
+            get {
+                return ResourceManager.GetString("FullTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Игровой режим.
         /// </summary>
         public static string GameModeButton {
@@ -447,6 +546,15 @@ namespace Coursework.Properties {
         public static string HelloFriend {
             get {
                 return ResourceManager.GetString("HelloFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Помощь .
+        /// </summary>
+        public static string HelpTab {
+            get {
+                return ResourceManager.GetString("HelpTab", resourceCulture);
             }
         }
         
@@ -542,6 +650,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Нет.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap ranger {
@@ -557,6 +674,33 @@ namespace Coursework.Properties {
         public static string RemovePair {
             get {
                 return ResourceManager.GetString("RemovePair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сбросить .
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сбросить настройки .
+        /// </summary>
+        public static string ResetSettings {
+            get {
+                return ResourceManager.GetString("ResetSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Устанавливает настройки по умолчанию. Прогресс и подборки останутся .
+        /// </summary>
+        public static string ResetSettingsDescription {
+            get {
+                return ResourceManager.GetString("ResetSettingsDescription", resourceCulture);
             }
         }
         
@@ -625,6 +769,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Настройки .
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Краткая статистика.
         /// </summary>
         public static string ShotStatistics {
@@ -652,11 +805,38 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Тесты .
+        /// </summary>
+        public static string TestSettings {
+            get {
+                return ResourceManager.GetString("TestSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Теория.
         /// </summary>
         public static string TheoryButton {
             get {
                 return ResourceManager.GetString("TheoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Время перехода между тестами .
+        /// </summary>
+        public static string TimeToNextTest {
+            get {
+                return ResourceManager.GetString("TimeToNextTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Устанавливает время, которое проходит между выполнениями тестов .
+        /// </summary>
+        public static string TimeToNextTestDescription {
+            get {
+                return ResourceManager.GetString("TimeToNextTestDescription", resourceCulture);
             }
         }
         
@@ -765,6 +945,15 @@ namespace Coursework.Properties {
         public static string WordsTypeDescription {
             get {
                 return ResourceManager.GetString("WordsTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Да.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

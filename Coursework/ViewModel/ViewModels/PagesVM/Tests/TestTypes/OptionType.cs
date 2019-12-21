@@ -9,13 +9,13 @@ using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.Models.Classes.Test;
+using Coursework.Models.Classes.User.Information;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
     class OptionType : Event
     {
         private const int AmointButtons = 4;
-        private const int SecondsToNextTest = 1;
 
         private TestManager _owner;
         private OneSessionStatistics _oneSessionStatistics;
@@ -27,25 +27,29 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private Visibility _timerVisibility;
         private DispatcherTimer _timer;
         private int _timerToNextPage;
+        private int _secondsToNextTest;
 
         private string _topLeft;
         private string _topRight;
         private string _bottomLeft;
         private string _bottomRight;
         private string _rightOutput;
+        private bool _waiting;
 
         private RelayCommand _backButton;
         private RelayCommand _checkResult;
 
 
         public OptionType (Random random, ObservableCollection<OneCollection> userCollections, 
-            TestManager owner, OneSessionStatistics oneSessionStatistics)
+            TestManager owner, OneSessionStatistics oneSessionStatistics, Settings testSettings)
         {
             _timerVisibility = Visibility.Hidden;
+            _waiting = true;
             _oneSessionStatistics = oneSessionStatistics;
             _random = random;
             _collections = userCollections;
             _owner = owner;
+            _secondsToNextTest = testSettings.NextTestTime;
             UpdateTest();
         }
 
@@ -122,6 +126,15 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("TimerVisibility");
             }
         }
+        public bool Waiting
+        {
+            get => _waiting;
+            set
+            {
+                _waiting = value;
+                OnPropertyChanged("Waiting");
+            }
+        }
 
 
         public RelayCommand CheckResult
@@ -156,6 +169,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         }
         private void RightResult()
         {
+            Waiting = false;
             RightOutput = _owner.RightOutput();
             TimerVisibility = Visibility.Visible;
             UpdateStatistics(true);
@@ -202,7 +216,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         }
         private void GoToTheNextTest()
         {
-            Timer = SecondsToNextTest;
+            Timer = _secondsToNextTest;
             _timer = new DispatcherTimer();
             _timer.Tick += new EventHandler(TimerTick);
             _timer.Interval = new TimeSpan(0, 0, 1);

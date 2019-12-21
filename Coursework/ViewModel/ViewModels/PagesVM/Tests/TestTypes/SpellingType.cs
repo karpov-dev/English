@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Speech.Synthesis;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Threading;
@@ -10,17 +9,17 @@ using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.Models.Classes.Test;
+using Coursework.Models.Classes.User.Information;
 
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
     class SpellingType : Event
     {
-        private const int SecondsToNextTest = 1;
-
         private OneSessionStatistics _oneSessionStatistics;
         private TestManager _owner;
         private OneWordPair _wordPair;
+        private Settings _settings;
         private OneCollection _currentCollection;
         private ObservableCollection<OneCollection> _userCollections;
         private DispatcherTimer _timer;
@@ -33,21 +32,24 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private int _amountRightSymbols;
         private int _timeToNextPage;
         private bool _expectation;
+        private int _secondsToNextTest;
 
         private RelayCommand _backButton;
         private RelayCommand _speakWord;
 
 
         public SpellingType(Random random, ObservableCollection<OneCollection> userCollections, 
-            TestManager owner, OneSessionStatistics oneSessionStatistics)
+            TestManager owner, OneSessionStatistics oneSessionStatistics, Settings testSettings)
         {
             _random = random;
+            _settings = testSettings;
             _oneSessionStatistics = oneSessionStatistics;
             _timerVisibility = Visibility.Hidden;
             _expectation = true;
             _userCollections = userCollections;
             _owner = owner;
             _textResults = new List<string>();
+            _secondsToNextTest = testSettings.NextTestTime;
             UpdateTest();
         }
 
@@ -147,6 +149,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         {
             _currentCollection = Test.SetRandomCurrentCollection(_random, _userCollections);
             _wordPair = Test.GetWordPair(_random, _currentCollection);
+            if(_settings.FullTest)
+            {
+                _wordPair = Test.RandomSwap(_random, _wordPair);
+            }
             Word = _wordPair.Word;
             Expectation = true;
         }
@@ -186,7 +192,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         }
         private void GoToNextTest()
         {
-            Timer = SecondsToNextTest;
+            Timer = _secondsToNextTest;
             _timer = new DispatcherTimer();
             _timer.Tick += new EventHandler(TimerTick);
             _timer.Interval = new TimeSpan(0, 0, 1);

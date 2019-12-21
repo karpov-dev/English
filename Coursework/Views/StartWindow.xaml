@@ -12,6 +12,8 @@
         xmlns:TestTypes="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes"
         xmlns:tests="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.Tests"
         xmlns:local="clr-namespace:Coursework.Views"
+        xmlns:settings="clr-namespace:Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings"
+        xmlns:settingsV ="clr-namespace:Coursework.Views.SettingsPage"
         mc:Ignorable="d"
         Title="EN 0.0.1" WindowState="Maximized" WindowStyle="None">
 
@@ -47,7 +49,10 @@
         <DataTemplate DataType="{x:Type tests:SessionResultPage}">
             <TestV:SessionResults/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type settings:AppSettings}">
+            <settingsV:SettingsV/>
+        </DataTemplate>
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 

@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.Windows;
 using Coursework.ViewModel.MangerOfNavigate;
 using Coursework.ViewModel.NavigateBase;
 using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.ViewModel.ViewModels.VM;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
+using Coursework.ViewModel.ViewModels.PagesVM.Notification;
 
 
 namespace Coursework.ViewModel.ViewModels.PagesVM
@@ -69,7 +69,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                 return _cancelCommand ??
                     (_cancelCommand = new RelayCommand(obj =>
                     {
-                        InformationMessage("Вы не сохранили подборку, в прочем, уже поздно");
+                        NotificationWindow notification = new NotificationWindow(Manager, "Test Title", "Test text", "pack://application:,,,/Resources/scout.png");
                         Manager.GoTo("MainPageVM");
                     }));
             }

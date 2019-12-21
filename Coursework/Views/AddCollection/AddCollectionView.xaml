@@ -9,15 +9,12 @@
              d:DesignHeight="1080" d:DesignWidth="1920">
 
     <UserControl.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="2"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-
+        
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
         </Style>
 
         <Style TargetType="TextBox">
@@ -30,7 +27,7 @@
         
     </UserControl.Resources>
     
-    <Grid Background="AliceBlue">
+    <Grid Background="{StaticResource MainBackground}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -41,10 +38,12 @@
             <RowDefinition Height="0.9*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" 
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource PageTitleStyle}" 
                    FontSize="35" Text="{x:Static res:Resources.AddingNewCollectionTextBlock}"/>
-        <Button Grid.Column="0" Grid.Row="2" Content="{x:Static res:Resources.Cancel}" Command="{Binding GoToWindow}" CommandParameter="MainPageVM"/>
-        <Button Grid.Column="2" Grid.Row="2" Content="{x:Static res:Resources.SaveButton}" Command="{Binding SaveCollectionCommand}"/>
+        <Button Grid.Column="0" Grid.Row="2" Content="{x:Static res:Resources.Cancel}" Command="{Binding GoToWindow}" CommandParameter="MainPageVM"
+                Style="{StaticResource Button}"/>
+        <Button Grid.Column="2" Grid.Row="2" Content="{x:Static res:Resources.SaveButton}" Command="{Binding SaveCollectionCommand}"
+                Style="{StaticResource Button}"/>
         <StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock Text="{x:Static res:Resources.BasicInformationTextBlok}" FontSize="35"/>
             <TextBlock Text="{x:Static res:Resources.CollectionName}" FontSize="20"/>
@@ -53,7 +52,7 @@
             <TextBox Text="{Binding DescriptionBox}"/>
             <CheckBox Content="{x:Static res:Resources.ActiveCollection}" IsChecked="{Binding IsCheckedBox}" Margin="20,5,20,5"/>
         </StackPanel>
-        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Background="Bisque">
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.15*"/>
                 <RowDefinition Height="0.85*"/>
@@ -69,17 +68,19 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="{x:Static res:Resources.AddingWords}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
-                <Button Content="{x:Static res:Resources.AddPair}" Command="{Binding AddNewPairCommand}" Grid.Column="0" Grid.Row="1"/>
-                <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSelectedItems}" Grid.Column="1" Grid.Row="1"/>
+                <Button Content="{x:Static res:Resources.AddPair}" Command="{Binding AddNewPairCommand}" Grid.Column="0" Grid.Row="1"
+                        Style="{StaticResource Button}"/>
+                <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSelectedItems}" Grid.Column="1" Grid.Row="1"
+                        Style="{StaticResource Button}"/>
                 <TextBlock Text="{x:Static res:Resources.Word}" Grid.Column="0" Grid.Row="2"/>
                 <TextBlock Text="{x:Static res:Resources.Translation}" Grid.Column="1" Grid.Row="2"/>
             </Grid>
             <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <StackPanel>
+                <StackPanel Background="{StaticResource CollectionsBackground}">
                     <ItemsControl ItemsSource="{Binding WordPairs}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Grid>
+                                <Grid Background="{StaticResource OneCollectionBackground}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition/>

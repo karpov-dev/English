@@ -62,7 +62,7 @@
     <Compile Include="Models\Classes\Test\OneSessionStatistics.cs" />
     <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
     <Compile Include="Models\Classes\User\Achievements\OneAchievement.cs" />
-    <Compile Include="Models\Classes\User\Information\UserInformation.cs" />
+    <Compile Include="Models\Classes\User\Information\Settings.cs" />
     <Compile Include="Models\Classes\User\WordCollections\OneCollection.cs" />
     <Compile Include="Models\Classes\User\Statistics\StatisticsForTheDay.cs" />
     <Compile Include="Models\Classes\User\Statistics\UserStatistics.cs" />
@@ -75,8 +75,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\ApplictionSettings\AppSettings.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Notification\NotificationWindow.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\SessionResultPage.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestsManager\TestManager.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\OptionType.cs" />
@@ -104,6 +106,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Notification\Notification.xaml.cs">
+      <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage\SettingsV.xaml.cs">
+      <DependentUpon>SettingsV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +127,10 @@
     <Compile Include="Views\Tests\SpellingTypePage.xaml.cs">
       <DependentUpon>SpellingTypePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Colors\ApplicationColors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddCollection\AddCollectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +144,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Notification\Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPage\SettingsV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,5 +217,6 @@
   <ItemGroup>
     <Resource Include="Resources\mountaineer.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

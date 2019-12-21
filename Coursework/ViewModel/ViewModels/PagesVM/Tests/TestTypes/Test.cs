@@ -56,5 +56,23 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
             RightAnswer = wordPairs[random.Next(0, wordPairs.Count)];
             return RightAnswer;
         }
+        static public OneWordPair RandomSwap(Random random, OneWordPair pair)
+        {
+            OneWordPair swapedPair = pair.Clone() as OneWordPair;
+            int isSwap = random.Next(0, 2);
+            switch(isSwap)
+            {
+                case 1:
+                    {
+                        swapedPair.Swap();
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+            }
+            return swapedPair;
+        }
     }
 }
