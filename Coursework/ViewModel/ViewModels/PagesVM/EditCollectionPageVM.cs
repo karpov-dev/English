@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using Coursework.Models;
 using Coursework.ViewModel.MangerOfNavigate;
 using Coursework.ViewModel.NavigateBase;
 using Coursework.Models.Classes.Commands;
@@ -109,7 +110,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
             ObservableCollection<TranslatePairVM> newWordPairs = new ObservableCollection<TranslatePairVM>();
             for(int i = 0; i < userWordPairs.Count; i++)
             {
-                newWordPairs.Add(new TranslatePairVM { Word = userWordPairs[i].Word, Translation = userWordPairs[i].Translation, IsCheck = false });
+                newWordPairs.Add(new TranslatePairVM() { Word = userWordPairs[i].Word, Translation = userWordPairs[i].Translation, IsCheck = false });
             }
             return newWordPairs;
         }

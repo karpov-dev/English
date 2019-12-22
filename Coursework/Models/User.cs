@@ -17,6 +17,7 @@ namespace Coursework.Models
         public UserStatistics Statistics;
         public Achievements Achievements;
         public WordCollection Collections;
+        public bool Administrator;
 
 
         public User()

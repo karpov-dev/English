@@ -19,11 +19,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 
         private TestManager _owner;
         private OneSessionStatistics _oneSessionStatistics;
-        private OneCollection _currentCollection;
+        private Settings _settings;
         private ObservableCollection<OneCollection> _collections;
         private OneWordPair _rightWordPair;
 
-        private Random _random;
         private Visibility _timerVisibility;
         private DispatcherTimer _timer;
         private int _timerToNextPage;
@@ -34,6 +33,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private string _bottomLeft;
         private string _bottomRight;
         private string _rightOutput;
+
+        private string _word;
+        private string _translate;
+
         private bool _waiting;
 
         private RelayCommand _backButton;
@@ -45,8 +48,8 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         {
             _timerVisibility = Visibility.Hidden;
             _waiting = true;
+            _settings = testSettings;
             _oneSessionStatistics = oneSessionStatistics;
-            _random = random;
             _collections = userCollections;
             _owner = owner;
             _secondsToNextTest = testSettings.NextTestTime;
@@ -56,10 +59,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 
         public string Word
         {
-            get => _rightWordPair.Word;
+            get => _word;
             set
             {
-                _rightWordPair.Word = value;
+                _word = value;
                 OnPropertyChanged("Word");
             }
         }
@@ -143,7 +146,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 (_checkResult = new RelayCommand(obj =>
                  {
                      string result = obj as string;
-                     if(result == _rightWordPair.Translation)
+                     if(result == _translate)
                      {
                          RightResult();
                      }
@@ -192,27 +195,54 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         }
         private void UpdateTest()
         {
-            List<OneWordPair> WordPairs;
-            _currentCollection = Test.SetRandomCurrentCollection(_random, _collections);
-            WordPairs = Test.GetWordPairs(_random, AmointButtons, _currentCollection);
-            _rightWordPair = Test.GetRandomAnswer(_random, WordPairs);
-            Word = _rightWordPair.Word;
-            TopLeft = SetForButton(WordPairs);
-            TopRight = SetForButton(WordPairs);
-            BottomLeft = SetForButton(WordPairs);
-            BottomRight = SetForButton(WordPairs);
-        }
-        private string SetForButton(List<OneWordPair> wordPairs)
-        {
-            string button = null;
-            int index = _random.Next(0, wordPairs.Count);
-            if ( wordPairs.Count > 0 )
+            OneCollection _currentCollection = Test.SetRandomCurrentCollection(_collections);
+            List<OneWordPair> WordPairs = Test.GetWordPairs(AmointButtons, _currentCollection);
+            _rightWordPair = Test.GetRandomAnswer(WordPairs);
+            if (_settings.FullTest && Test.GetSwap())
             {
-                OneWordPair wordPair = wordPairs[index];
-                button = wordPair.Translation;
-                wordPairs.Remove(wordPair);
+                _word = _rightWordPair.Word;
+                _translate = _rightWordPair.Translation;
+                SetButtons(GetTranslations(WordPairs));
             }
-            return button;
+            else
+            {
+                _word = _rightWordPair.Translation;
+                _translate = _rightWordPair.Word;
+                SetButtons(GetWords(WordPairs));
+            }
+        }
+
+        private void SetButtons(List<string> answers)
+        {
+            BottomLeft = GetRandomStringAndRemove(answers);
+            BottomRight = GetRandomStringAndRemove(answers);
+            TopLeft = GetRandomStringAndRemove(answers);
+            TopRight = GetRandomStringAndRemove(answers);
+        }
+        private string GetRandomStringAndRemove(List<string> strings)
+        {
+            int index = Test.GetRandomNumber(0, ( strings.Count - 1 ));
+            string randomString = strings[index];
+            strings.RemoveAt(index);
+            return randomString;
+        }
+        private List<string> GetTranslations(List<OneWordPair> pairs)
+        {
+            List<string> translations = new List<string>();
+            for(int i = 0; i < pairs.Count; i++ )
+            {
+                translations.Add(pairs[i].Translation);
+            }
+            return translations;
+        }
+        private List<string> GetWords(List<OneWordPair> pairs)
+        {
+            List<string> words = new List<string>();
+            for ( int i = 0; i < pairs.Count; i++ )
+            {
+                words.Add(pairs[i].Word);
+            }
+            return words;
         }
         private void GoToTheNextTest()
         {

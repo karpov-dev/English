@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>О Программе </value>
+  </data>
   <data name="ActiveCollection" xml:space="preserve">
     <value>Активная подборка </value>
   </data>
@@ -134,6 +137,9 @@
   </data>
   <data name="AddPair" xml:space="preserve">
     <value>Добавить связку</value>
+  </data>
+  <data name="AddReaction" xml:space="preserve">
+    <value>Добавить реакцию </value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="adventurer" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -178,8 +184,20 @@
   <data name="CancelWithFullFields" xml:space="preserve">
     <value>У вас остались заполненные поля. Вы действительно хотите выйти?</value>
   </data>
+  <data name="ChangeName" xml:space="preserve">
+    <value>Изменить имя</value>
+  </data>
   <data name="Check" xml:space="preserve">
     <value>Проверить</value>
+  </data>
+  <data name="CheckInternet" xml:space="preserve">
+    <value>Проверить соединение </value>
+  </data>
+  <data name="CleanAllTranslation" xml:space="preserve">
+    <value>Очистить все переводы</value>
+  </data>
+  <data name="CleanAllWordPairs" xml:space="preserve">
+    <value>Удалить все слова</value>
   </data>
   <data name="CollectionDescription" xml:space="preserve">
     <value>Описание подборки</value>
@@ -214,6 +232,9 @@
   <data name="DeleteCollection" xml:space="preserve">
     <value>Удалить подборку</value>
   </data>
+  <data name="DeleteReaction" xml:space="preserve">
+    <value>Удалить реакцию </value>
+  </data>
   <data name="DeleteSelectedCollections" xml:space="preserve">
     <value>Удалить выбранные подборки</value>
   </data>
@@ -226,17 +247,26 @@
   <data name="Delightfully" xml:space="preserve">
     <value>Восхитительно!</value>
   </data>
+  <data name="Development" xml:space="preserve">
+    <value>Разработка</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
   <data name="EditCollection" xml:space="preserve">
     <value>Редактирование подборки</value>
   </data>
+  <data name="EditReaction" xml:space="preserve">
+    <value>Редактировать реакцию </value>
+  </data>
   <data name="EmptyFieldsError" xml:space="preserve">
     <value>У вас остались незаполненные поля</value>
   </data>
   <data name="End" xml:space="preserve">
     <value>Закончить</value>
+  </data>
+  <data name="Enternet" xml:space="preserve">
+    <value>Онлайн перевод </value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Ошибка</value>
@@ -250,6 +280,9 @@
   <data name="explorer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\explorer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>Помощь </value>
+  </data>
   <data name="ForAllTime" xml:space="preserve">
     <value>За все время</value>
   </data>
@@ -262,11 +295,17 @@
   <data name="ForTheDay" xml:space="preserve">
     <value>За день</value>
   </data>
+  <data name="FullHelp" xml:space="preserve">
+    <value>Путеводитель по программе</value>
+  </data>
   <data name="FullTest" xml:space="preserve">
     <value>Использовать тесты с обратными переводами </value>
   </data>
   <data name="GameModeButton" xml:space="preserve">
     <value>Игровой режим</value>
+  </data>
+  <data name="GiveTranslation" xml:space="preserve">
+    <value>Предалагать перевод во время добавления коллекции</value>
   </data>
   <data name="Good" xml:space="preserve">
     <value>Отлично!</value>
@@ -310,6 +349,12 @@
   <data name="mountaineer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mountaineer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MyCollections" xml:space="preserve">
+    <value>Мои коллекции </value>
+  </data>
+  <data name="NameCantBeEmpty" xml:space="preserve">
+    <value>Имя не может быть пустым </value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
   </data>
@@ -319,8 +364,23 @@
   <data name="ranger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ranger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Reaction" xml:space="preserve">
+    <value>Реакция </value>
+  </data>
+  <data name="ReactionForRightAnswer" xml:space="preserve">
+    <value>Редактировать реакцию на правильный ответ </value>
+  </data>
+  <data name="ReactionForWrongAnswer" xml:space="preserve">
+    <value>Редактировать реакцию на неправильный ответ </value>
+  </data>
+  <data name="RecommendedCollections" xml:space="preserve">
+    <value>Рекомендованные коллекции </value>
+  </data>
   <data name="RemovePair" xml:space="preserve">
     <value>Удалить связку</value>
+  </data>
+  <data name="RepitStartWindow" xml:space="preserve">
+    <value>Просмотреть еще раз стартовый экран </value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Сбросить </value>
@@ -352,8 +412,14 @@
   <data name="SessionResult" xml:space="preserve">
     <value>Результаты теста</value>
   </data>
+  <data name="SetGodMode" xml:space="preserve">
+    <value>Перейти в режим разработчика</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки </value>
+  </data>
+  <data name="SetUserMode" xml:space="preserve">
+    <value>Перейти в режим пользователя</value>
   </data>
   <data name="ShotStatistics" xml:space="preserve">
     <value>Краткая статистика</value>
@@ -384,6 +450,9 @@
   </data>
   <data name="TotalLernedWords" xml:space="preserve">
     <value>Выучено слов</value>
+  </data>
+  <data name="TranslateSelected" xml:space="preserve">
+    <value>Перевести выделенные</value>
   </data>
   <data name="Translation" xml:space="preserve">
     <value>Перевод</value>

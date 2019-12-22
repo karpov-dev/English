@@ -20,7 +20,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
 
         private ObservableCollection<OneCollection> _selectedCollections;
         private ObservableCollection<object> _tests;
-        private ObservableCollection<string> _rightOutputs;
         private int _currentTest;
         private int _amountTests;
 
@@ -32,7 +31,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
 
         public TestManager(User user, NavigateManager navigateManager) : base(navigateManager)
         {
-            SetRightOutputs();
             _currentUser = user;
             _currentTest = 0;
             _amountTests = user.Information.AmountTests;
@@ -63,8 +61,16 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
         }
         public string RightOutput()
         {
-            int index = _random.Next(_rightOutputs.Count);
-            return _rightOutputs[index];
+            if(_currentUser.Information.GoodReactions.Count > 0)
+            {
+                int index = _random.Next(_currentUser.Information.GoodReactions.Count);
+                return _currentUser.Information.GoodReactions[index].Reaction;
+            }
+            else
+            {
+                ErrorMessage("Не найдено ни одой ответного сообщения. Код ошибки: 1");
+                return " ";
+            }
         }
 
         public RelayCommand BackButton
@@ -158,15 +164,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager
                 }
             }
             return selectedCollections;
-        }
-        private void SetRightOutputs()
-        {
-            _rightOutputs = new ObservableCollection<string>();
-            _rightOutputs.Add(Properties.Resources.Good);
-            _rightOutputs.Add(Properties.Resources.GoodJob);
-            _rightOutputs.Add(Properties.Resources.VeryGood);
-            _rightOutputs.Add(Properties.Resources.KeepItUp);
-            _rightOutputs.Add(Properties.Resources.Delightfully);
         }
         private void AddSpellingTypeTest()
         {

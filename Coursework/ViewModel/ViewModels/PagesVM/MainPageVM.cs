@@ -117,7 +117,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                 return _addNewCollectionCommand ??
                     (_addNewCollectionCommand = new RelayCommand(obj =>
                     {
-                        Manager.CurrentViewModel = new AddingNewCollectionPageVM(_currentUser.Collections, "AddingNewCollectionPageVM", Manager);
+                        Manager.CurrentViewModel = new AddingNewCollectionPageVM(_currentUser.Information, _currentUser.Collections, "AddingNewCollectionPageVM", Manager);
                     }));
             }
         }

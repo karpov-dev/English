@@ -1,8 +1,11 @@
-﻿using Coursework.ViewModel.MangerOfNavigate;
+﻿using System.Windows;
+using Coursework.ViewModel.MangerOfNavigate;
 using Coursework.ViewModel.NavigateBase;
 using Coursework.Models;
 using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.Information;
+using Coursework.ViewModel.ViewModels.PagesVM.Develop;
+using Coursework.Models.Classes.Enternet;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
 {
@@ -14,6 +17,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
         private RelayCommand _deleteProgress;
         private RelayCommand _resetSettings;
         private RelayCommand _backButton;
+        private RelayCommand _setMode;
+        private RelayCommand _editGoodReaction;
+        private RelayCommand _editBadReaction;
+        private RelayCommand _checkEnternetConnection;
 
         public AppSettings(string viewModelName, NavigateManager navigateManager, User user) : base(viewModelName, navigateManager)
         {
@@ -21,6 +28,20 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
         }
 
         public Settings GetSettings => _user.Information;
+        public string Mode
+        {
+            get
+            {
+                if(_user.Administrator)
+                {
+                    return Properties.Resources.SetUserMode;
+                }
+                else
+                {
+                    return Properties.Resources.SetGodMode;
+                }
+            }
+        }
 
         public RelayCommand DeleteAllCollections
         {
@@ -68,6 +89,77 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
                      }) );
             }
         }
+        public RelayCommand SetMode
+        {
+            get
+            {
+                return _setMode ??
+                    ( _setMode = new RelayCommand(obj =>
+                     {
+                         if(_user.Administrator)
+                         {
+                             _user.Administrator = false;
+                         }
+                         else
+                         {
+                             _user.Administrator = true;
+                         }
+                         OnPropertyChanged("Mode");
+                         OnPropertyChanged("DeveloperFunctionsVisibility");
+                     }) );
+            }
+        }
+        public RelayCommand EditGoodReaction
+        {
+            get
+            {
+                return _editGoodReaction ??
+                    ( _editGoodReaction = new RelayCommand(obj =>
+                     {
+                         Manager.CurrentViewModel = new TestReactions(Manager, _user.Information.GoodReactions, "Good Reaction Edit");
+                     }) );
+            }
+        }
+        public RelayCommand EditBadReaction
+        {
+            get
+            {
+                return _editBadReaction ??
+                    ( _editBadReaction = new RelayCommand(obj =>
+                    {
+                        Manager.CurrentViewModel = new TestReactions(Manager, _user.Information.BadReaction, "Bad Reaction Edit");
+                    }) );
+            }
+        }
+        public RelayCommand CheckEnternetConnection
+        {
+            get
+            {
+                return _checkEnternetConnection ??
+                    (_checkEnternetConnection = new RelayCommand(obj =>
+                     {
+                         _user.Information.UpdateInternetConnection();
+                     }));
+            }
+        }
+        public RelayCommand BackButton
+        {
+            get
+            {
+                return _backButton ??
+                    ( _backButton = new RelayCommand(obj =>
+                    {
+                        if(_user.Information.Name == "")
+                        {
+                            ErrorMessage(Properties.Resources.NameCantBeEmpty);
+                        }
+                        else
+                        {
+                            Manager.GoTo("MainPageVM");
+                        }
+                    }) );
+            }
+        }
 
         public bool DeleteAllCollectionsEnabled
         {
@@ -79,16 +171,18 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
                     return false;
             }
         }
-
-        public RelayCommand BackButton
+        public Visibility DeveloperFunctionsVisibility
         {
             get
             {
-                return _backButton ??
-                    ( _backButton = new RelayCommand(obj =>
-                     {
-                         Manager.GoTo("MainPageVM");
-                     }) );
+                if(_user.Administrator)
+                {
+                    return Visibility.Visible;
+                }
+                else
+                {
+                    return Visibility.Collapsed;
+                }
             }
         }
     }

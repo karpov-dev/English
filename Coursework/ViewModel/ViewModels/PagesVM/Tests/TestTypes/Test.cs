@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Coursework.Models;
-using Coursework.Models.Classes.Events;
-using Coursework.Models.Classes.Commands;
-using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
-using Coursework.ViewModel.ViewModels.VM;
-using Coursework.Models.Classes.User.Statistics;
+using System.Security.Cryptography;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
     static class Test
     {
-        static public OneCollection SetRandomCurrentCollection(Random random, ObservableCollection<OneCollection> collections)
+        static public OneCollection SetRandomCurrentCollection(ObservableCollection<OneCollection> collections)
         {
             OneCollection randomCollection;
-            randomCollection = collections[random.Next(0, collections.Count)];
+            randomCollection = collections[GetRandomNumber(0, (collections.Count - 1))];
             return randomCollection;
         }
-        static public OneWordPair GetWordPair(Random random, OneCollection collection)
+        static public OneWordPair GetWordPair(OneCollection collection)
         {
             int amountWords = collection.AmountWords;
-            int randomWordPairIndex = random.Next(0, amountWords);
+            int randomWordPairIndex = GetRandomNumber(0, (amountWords - 1));
             return collection.WordPair[randomWordPairIndex];
         }
-        static public List<OneWordPair> GetWordPairs(Random random, int amount, OneCollection collection)
+        static public List<OneWordPair> GetWordPairs(int amount, OneCollection collection)
         {
             List<OneWordPair> listOfWords = new List<OneWordPair>();
             for ( int i = 0; i < amount; i++ )
@@ -36,43 +31,46 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 do
                 {
                     checkRepetition = false;
-                    wordPair = GetWordPair(random, collection);
+                    wordPair = GetWordPair(collection);
                     for ( int j = 0; j < listOfWords.Count; j++ )
                     {
-                        if ( wordPair == listOfWords[j] )
+                        if ( (wordPair.Translation == listOfWords[j].Translation) && (wordPair.Word == listOfWords[j].Word ))
                         {
                             checkRepetition = true;
                             break;
                         }
                     }
                 } while ( checkRepetition );
-                listOfWords.Add(wordPair);
+                listOfWords.Add(wordPair.Clone() as OneWordPair);
             }
             return listOfWords;
         }
-        static public OneWordPair GetRandomAnswer(Random random, List<OneWordPair> wordPairs)
+        static public OneWordPair GetRandomAnswer(List<OneWordPair> wordPairs)
         {
             OneWordPair RightAnswer;
-            RightAnswer = wordPairs[random.Next(0, wordPairs.Count)];
-            return RightAnswer;
+            RightAnswer = wordPairs[GetRandomNumber(0, (wordPairs.Count - 1))];
+            return RightAnswer.Clone() as OneWordPair;
         }
-        static public OneWordPair RandomSwap(Random random, OneWordPair pair)
+        static public bool GetSwap()
         {
-            OneWordPair swapedPair = pair.Clone() as OneWordPair;
-            int isSwap = random.Next(0, 2);
-            switch(isSwap)
+            int isSwap = GetRandomNumber(0, 1);
+            if ( isSwap > 0 )
+                return true;
+            return false;
+        }
+        static public int GetRandomNumber(int minValue, int maxValue)
+        {
+            RNGCryptoServiceProvider rnd = new RNGCryptoServiceProvider();
+            int result = 0;
+            do
             {
-                case 1:
-                    {
-                        swapedPair.Swap();
-                        break;
-                    }
-                    default:
-                    {
-                        break;
-                    }
-            }
-            return swapedPair;
+                byte[] randombyte = new byte[1];
+                rnd.GetBytes(randombyte); //получаем случайный байт 
+                double random_multiplyer = ( randombyte[0] / 255d );
+                int difference = maxValue - minValue + 1; //находим разницу между максимальным и минимальным значением 
+                result = (int) ( minValue + Math.Floor(random_multiplyer * difference) );  //прибавляем к минимальному значение число от 0 до difference
+            } while ( result > maxValue || result < minValue );
+            return result;
         }
     }
 }

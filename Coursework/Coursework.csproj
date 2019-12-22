@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -58,6 +61,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Classes\Commands\RelayCommand.cs" />
+    <Compile Include="Models\Classes\Enternet\Connection.cs" />
     <Compile Include="Models\Classes\Events\Event.cs" />
     <Compile Include="Models\Classes\Test\OneSessionStatistics.cs" />
     <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="Models\Classes\User\Statistics\UserStatistics.cs" />
     <Compile Include="Models\Classes\User\WordCollections\WordPair\OneWordPair.cs" />
     <Compile Include="Models\Classes\User\WordCollections\WordCollection.cs" />
+    <Compile Include="Models\Classes\User\WordCollections\Translator.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +81,7 @@
     </Compile>
     <Compile Include="ViewModel\ViewModels\PagesVM\AddingNewCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\ApplictionSettings\AppSettings.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Develop\TestReactions.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Notification\NotificationWindow.cs" />
@@ -84,14 +90,19 @@
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\OptionType.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\SpellingType.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\Test.cs" />
+    <Compile Include="ViewModel\ViewModels\VM\ReactionVM.cs" />
     <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
     <Compile Include="ViewModel\MangerOfNavigate\NavigateManager.cs" />
     <Compile Include="ViewModel\NavigateBase\EventVM.cs" />
     <Compile Include="ViewModel\NavigateBase\ManagerVM.cs" />
     <Compile Include="ViewModel\NavigateBase\NavigateVM.cs" />
+    <Compile Include="ViewModel\ViewModels\VM\WordPairs.cs" />
     <Compile Include="Views\AddCollection\AddCollectionView.xaml.cs">
       <DependentUpon>AddCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Develop\EditReactions.xaml.cs">
+      <DependentUpon>EditReactions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditCollection\EditCollection.xaml.cs">
       <DependentUpon>EditCollection.xaml</DependentUpon>
@@ -132,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddCollection\AddCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Develop\EditReactions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +200,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

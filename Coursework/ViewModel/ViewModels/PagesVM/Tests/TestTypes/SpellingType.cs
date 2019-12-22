@@ -24,15 +24,18 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private ObservableCollection<OneCollection> _userCollections;
         private DispatcherTimer _timer;
         private Visibility _timerVisibility;
-        private Random _random;
 
         private string _userInput;
         private string _textResult;
+        
         private List<string> _textResults;
         private int _amountRightSymbols;
         private int _timeToNextPage;
         private bool _expectation;
         private int _secondsToNextTest;
+
+        private string _translation;
+        private string _word;
 
         private RelayCommand _backButton;
         private RelayCommand _speakWord;
@@ -41,7 +44,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         public SpellingType(Random random, ObservableCollection<OneCollection> userCollections, 
             TestManager owner, OneSessionStatistics oneSessionStatistics, Settings testSettings)
         {
-            _random = random;
             _settings = testSettings;
             _oneSessionStatistics = oneSessionStatistics;
             _timerVisibility = Visibility.Hidden;
@@ -56,10 +58,10 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 
         public string Word
         {
-            get => _wordPair.Word;
+            get => _word;
             set
             {
-                _wordPair.Word = value;
+                _word = value;
                 OnPropertyChanged("Word");
             }
         }
@@ -100,7 +102,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("Timer");
             }
         }
-        public int TranslationLenght => _wordPair.Translation.Length;
+        public int TranslationLenght => _translation.Length;
         public Visibility TimerVisibility
         {
             get => _timerVisibility;
@@ -147,18 +149,23 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 
         private void UpdateTest()
         {
-            _currentCollection = Test.SetRandomCurrentCollection(_random, _userCollections);
-            _wordPair = Test.GetWordPair(_random, _currentCollection);
-            if(_settings.FullTest)
+            _currentCollection = Test.SetRandomCurrentCollection(_userCollections);
+            _wordPair = Test.GetWordPair(_currentCollection);
+            if(_settings.FullTest && Test.GetSwap() )
             {
-                _wordPair = Test.RandomSwap(_random, _wordPair);
+                Word = _wordPair.Translation;
+                _translation = _wordPair.Word;
             }
-            Word = _wordPair.Word;
+            else
+            {
+                Word = _wordPair.Word;
+                _translation = _wordPair.Translation;
+            }
             Expectation = true;
         }
         private void CheckInput()
         {
-            if(_wordPair.Translation.Contains(UserInput))
+            if(_translation.Contains(UserInput))
             {
                 AmountRightSymbols = UserInput.Length;
             }
@@ -168,7 +175,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 UpdateStatistics(false);
             }
 
-            if(_wordPair.Translation == UserInput)
+            if(_translation == UserInput)
             {
                 TextResult = _owner.RightOutput();
                 TimerVisibility = Visibility.Visible;

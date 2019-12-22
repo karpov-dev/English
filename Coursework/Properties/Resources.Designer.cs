@@ -61,6 +61,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на О Программе .
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Активная подборка .
         /// </summary>
         public static string ActiveCollection {
@@ -111,6 +120,15 @@ namespace Coursework.Properties {
         public static string AddPair {
             get {
                 return ResourceManager.GetString("AddPair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить реакцию .
+        /// </summary>
+        public static string AddReaction {
+            get {
+                return ResourceManager.GetString("AddReaction", resourceCulture);
             }
         }
         
@@ -242,11 +260,47 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Изменить имя.
+        /// </summary>
+        public static string ChangeName {
+            get {
+                return ResourceManager.GetString("ChangeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Проверить.
         /// </summary>
         public static string Check {
             get {
                 return ResourceManager.GetString("Check", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Проверить соединение .
+        /// </summary>
+        public static string CheckInternet {
+            get {
+                return ResourceManager.GetString("CheckInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Очистить все переводы.
+        /// </summary>
+        public static string CleanAllTranslation {
+            get {
+                return ResourceManager.GetString("CleanAllTranslation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить все слова.
+        /// </summary>
+        public static string CleanAllWordPairs {
+            get {
+                return ResourceManager.GetString("CleanAllWordPairs", resourceCulture);
             }
         }
         
@@ -350,6 +404,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить реакцию .
+        /// </summary>
+        public static string DeleteReaction {
+            get {
+                return ResourceManager.GetString("DeleteReaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить выбранные подборки.
         /// </summary>
         public static string DeleteSelectedCollections {
@@ -386,6 +449,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Разработка.
+        /// </summary>
+        public static string Development {
+            get {
+                return ResourceManager.GetString("Development", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактировать.
         /// </summary>
         public static string Edit {
@@ -404,6 +476,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать реакцию .
+        /// </summary>
+        public static string EditReaction {
+            get {
+                return ResourceManager.GetString("EditReaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на У вас остались незаполненные поля.
         /// </summary>
         public static string EmptyFieldsError {
@@ -418,6 +499,15 @@ namespace Coursework.Properties {
         public static string End {
             get {
                 return ResourceManager.GetString("End", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Онлайн перевод .
+        /// </summary>
+        public static string Enternet {
+            get {
+                return ResourceManager.GetString("Enternet", resourceCulture);
             }
         }
         
@@ -460,6 +550,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Помощь .
+        /// </summary>
+        public static string FAQ {
+            get {
+                return ResourceManager.GetString("FAQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на За все время.
         /// </summary>
         public static string ForAllTime {
@@ -496,6 +595,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Путеводитель по программе.
+        /// </summary>
+        public static string FullHelp {
+            get {
+                return ResourceManager.GetString("FullHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Использовать тесты с обратными переводами .
         /// </summary>
         public static string FullTest {
@@ -510,6 +618,15 @@ namespace Coursework.Properties {
         public static string GameModeButton {
             get {
                 return ResourceManager.GetString("GameModeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Предалагать перевод во время добавления коллекции.
+        /// </summary>
+        public static string GiveTranslation {
+            get {
+                return ResourceManager.GetString("GiveTranslation", resourceCulture);
             }
         }
         
@@ -641,6 +758,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Мои коллекции .
+        /// </summary>
+        public static string MyCollections {
+            get {
+                return ResourceManager.GetString("MyCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Имя не может быть пустым .
+        /// </summary>
+        public static string NameCantBeEmpty {
+            get {
+                return ResourceManager.GetString("NameCantBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Далее.
         /// </summary>
         public static string Next {
@@ -669,11 +804,56 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Реакция .
+        /// </summary>
+        public static string Reaction {
+            get {
+                return ResourceManager.GetString("Reaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать реакцию на правильный ответ .
+        /// </summary>
+        public static string ReactionForRightAnswer {
+            get {
+                return ResourceManager.GetString("ReactionForRightAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать реакцию на неправильный ответ .
+        /// </summary>
+        public static string ReactionForWrongAnswer {
+            get {
+                return ResourceManager.GetString("ReactionForWrongAnswer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Рекомендованные коллекции .
+        /// </summary>
+        public static string RecommendedCollections {
+            get {
+                return ResourceManager.GetString("RecommendedCollections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить связку.
         /// </summary>
         public static string RemovePair {
             get {
                 return ResourceManager.GetString("RemovePair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Просмотреть еще раз стартовый экран .
+        /// </summary>
+        public static string RepitStartWindow {
+            get {
+                return ResourceManager.GetString("RepitStartWindow", resourceCulture);
             }
         }
         
@@ -769,11 +949,29 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Перейти в режим разработчика.
+        /// </summary>
+        public static string SetGodMode {
+            get {
+                return ResourceManager.GetString("SetGodMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Настройки .
         /// </summary>
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перейти в режим пользователя.
+        /// </summary>
+        public static string SetUserMode {
+            get {
+                return ResourceManager.GetString("SetUserMode", resourceCulture);
             }
         }
         
@@ -864,6 +1062,15 @@ namespace Coursework.Properties {
         public static string TotalLernedWords {
             get {
                 return ResourceManager.GetString("TotalLernedWords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перевести выделенные.
+        /// </summary>
+        public static string TranslateSelected {
+            get {
+                return ResourceManager.GetString("TranslateSelected", resourceCulture);
             }
         }
         

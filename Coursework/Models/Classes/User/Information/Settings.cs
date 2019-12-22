@@ -1,5 +1,8 @@
 ﻿using System;
 using Coursework.Models.Classes.Events;
+using System.Collections.ObjectModel;
+using Coursework.Models.Classes.Enternet;
+using Coursework.ViewModel.ViewModels.VM;
 
 namespace Coursework.Models.Classes.User.Information
 {
@@ -9,11 +12,19 @@ namespace Coursework.Models.Classes.User.Information
         private const int DeafultAmountTests = 10;
         private const int DefaultTestTime = 1;
         private const bool DefaultFullTest = true;
+        private const bool DefaultOnlineTranslation = true;
 
         private string _name;
         private int _amountTests;
         private int _testTime;
         private bool _fullTest;
+        private bool _onlineTranslation;
+
+        public Settings()
+        {
+            GoodReactions = new ObservableCollection<ReactionVM>();
+            BadReaction = new ObservableCollection<ReactionVM>();
+        }
 
         public string Name
         {
@@ -51,12 +62,31 @@ namespace Coursework.Models.Classes.User.Information
                 OnPropertyChanged("FullTest");
             }
         }
+        public bool OnlineTranslation
+        {
+            get => _onlineTranslation;
+            set
+            {
+                _onlineTranslation = value;
+                OnPropertyChanged("GiveTranslation");
+            }
+        }
+        public bool OnlineTranslationAvailable => Connection.IsInternetAvailable();
+        public ObservableCollection<ReactionVM> GoodReactions { get; private set; }
+        public ObservableCollection<ReactionVM> BadReaction { get; private set; }
+        
 
         public void Reset()
         {
             AmountTests = DeafultAmountTests;
             NextTestTime = DefaultTestTime;
             FullTest = DefaultFullTest;
+            OnlineTranslation = DefaultOnlineTranslation;
+        }
+        public void UpdateInternetConnection()
+        {
+            OnPropertyChanged("OnlineTranslation");
+            OnPropertyChanged("OnlineTranslationAvailable");
         }
     }
 }
