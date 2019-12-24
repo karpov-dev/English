@@ -17,7 +17,8 @@
         </Grid.RowDefinitions>
         <TextBlock Text="{Binding Type}" Style="{StaticResource PageTitleStyle}" Grid.Row="0" Margin="10"/>
         <StackPanel  Grid.Row="1" Margin="10">
-            <TextBox DataContext="{Binding SelectedReaction, UpdateSourceTrigger=PropertyChanged}" Text="{Binding Reaction}" FontSize="20"/>
+            <TextBox DataContext="{Binding SelectedReaction, UpdateSourceTrigger=PropertyChanged}" Text="{Binding Reaction}"
+                     Style="{StaticResource TextBox}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

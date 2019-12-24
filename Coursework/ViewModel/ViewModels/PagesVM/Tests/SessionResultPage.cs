@@ -10,17 +10,12 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests
     {
         private OneSessionStatistics _statistics;
         private TestManager _owner; 
-
         private RelayCommand _backButton;
 
-        public SessionResultPage(OneSessionStatistics statistics, UserStatistics userStatistics, TestManager owner)
+        public SessionResultPage(OneSessionStatistics statistics, TestManager owner)
         {
             _statistics = statistics;
             _owner = owner;
-            userStatistics.AddExperience(statistics.TotalExp);
-            userStatistics.AddLearnedWords(statistics.LearnedWords);
-            userStatistics.AddWrongs(statistics.AmountErrors);
-            userStatistics.AddRepitedWords(statistics.RepitedWords);
         }
 
         public OneSessionStatistics Statistics => _statistics;

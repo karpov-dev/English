@@ -13,17 +13,24 @@ namespace Coursework.Models.Classes.User.Information
         private const int DefaultTestTime = 1;
         private const bool DefaultFullTest = true;
         private const bool DefaultOnlineTranslation = true;
+        private const int DefaultTranslateConst = 14;
+        private const int DefaultSpellingTranslateConst = 3;
+        private const int DefaultAudioValue = 75;
 
         private string _name;
+        private Coins _coins;
         private int _amountTests;
         private int _testTime;
         private bool _fullTest;
         private bool _onlineTranslation;
+        private int _audioValue;
 
         public Settings()
         {
+            _coins = new Coins();
             GoodReactions = new ObservableCollection<ReactionVM>();
             BadReaction = new ObservableCollection<ReactionVM>();
+            Reset();
         }
 
         public string Name
@@ -53,6 +60,15 @@ namespace Coursework.Models.Classes.User.Information
                 OnPropertyChanged("NextTestTime");
             }
         }
+        public int AudioValue
+        {
+            get => _audioValue;
+            set
+            {
+                _audioValue = value;
+                OnPropertyChanged("AudioValue");
+            }
+        }
         public bool FullTest
         {
             get => _fullTest;
@@ -74,7 +90,9 @@ namespace Coursework.Models.Classes.User.Information
         public bool OnlineTranslationAvailable => Connection.IsInternetAvailable();
         public ObservableCollection<ReactionVM> GoodReactions { get; private set; }
         public ObservableCollection<ReactionVM> BadReaction { get; private set; }
-        
+        public Coins GetCoins => _coins;
+        public int TranslateCost => DefaultTranslateConst;
+        public int SpellingTranslateCost => DefaultSpellingTranslateConst;
 
         public void Reset()
         {
@@ -82,6 +100,8 @@ namespace Coursework.Models.Classes.User.Information
             NextTestTime = DefaultTestTime;
             FullTest = DefaultFullTest;
             OnlineTranslation = DefaultOnlineTranslation;
+            AudioValue = DefaultAudioValue;
+            GetCoins.Reset();
         }
         public void UpdateInternetConnection()
         {

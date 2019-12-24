@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Threading;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Media;
 using Coursework.Models.Classes.Events;
 using Coursework.Models.Classes.Commands;
 using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
@@ -10,23 +11,23 @@ using Coursework.Models.Classes.User.WordCollections.WordPair;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.Models.Classes.Test;
 using Coursework.Models.Classes.User.Information;
+using Coursework.Models;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
 {
     class OptionType : Event
     {
         private const int AmointButtons = 4;
+        private const int CoinsForRightResult = 3;
 
         private TestManager _owner;
+        private User _user;
         private OneSessionStatistics _oneSessionStatistics;
-        private Settings _settings;
         private ObservableCollection<OneCollection> _collections;
         private OneWordPair _rightWordPair;
+        private SolidColorBrush _outputForeground;
 
         private Visibility _timerVisibility;
-        private DispatcherTimer _timer;
-        private int _timerToNextPage;
-        private int _secondsToNextTest;
 
         private string _topLeft;
         private string _topRight;
@@ -38,24 +39,37 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         private string _translate;
 
         private bool _waiting;
+        private bool _translateWordButtonEnabled;
+        private bool _usingHelp;
 
         private RelayCommand _backButton;
         private RelayCommand _checkResult;
+        private RelayCommand _translateWordButton;
+        private RelayCommand _listenWord;
 
 
-        public OptionType (Random random, ObservableCollection<OneCollection> userCollections, 
-            TestManager owner, OneSessionStatistics oneSessionStatistics, Settings testSettings)
+        public OptionType(ObservableCollection<OneCollection> userCollections, TestManager owner, 
+            OneSessionStatistics oneSessionStatistics, User user)
         {
+            _usingHelp = false;
+            _user = user;
             _timerVisibility = Visibility.Hidden;
             _waiting = true;
-            _settings = testSettings;
             _oneSessionStatistics = oneSessionStatistics;
             _collections = userCollections;
             _owner = owner;
-            _secondsToNextTest = testSettings.NextTestTime;
+            TranslateWordButtonEnabled = true;
             UpdateTest();
         }
 
+
+        public int AmountCoins => _owner.UserCoins;
+        public int AmountExp => _owner.UserExp;
+        public int TranslateWordCost => _owner.TranslateConst;
+        public int AudioValue => _owner.AudioValue;
+        public string CurrentTest => _owner.CurrentTestString;
+        public TestManager GetOwner => _owner;
+        
 
         public string Word
         {
@@ -102,22 +116,22 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("BottomRight");
             }
         }
-        public string RightOutput
+        public string OutputResult
         {
             get => _rightOutput;
             set
             {
                 _rightOutput = value;
-                OnPropertyChanged("RightOutput");
+                OnPropertyChanged("OutputResult");
             }
         }
-        public int Timer
+        public SolidColorBrush OutputForeground
         {
-            get => _timerToNextPage;
+            get => _outputForeground;
             set
             {
-                _timerToNextPage = value;
-                OnPropertyChanged("Timer");
+                _outputForeground = value;
+                OnPropertyChanged("OutputForeground");
             }
         }
         public Visibility TimerVisibility
@@ -138,6 +152,25 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 OnPropertyChanged("Waiting");
             }
         }
+        public bool TranslateWordButtonEnabled
+        {
+            get
+            {
+                if(AmountCoins < TranslateWordCost )
+                {
+                    return false;
+                }
+                else
+                {
+                    return _translateWordButtonEnabled;
+                }
+            }
+            set
+            {
+                _translateWordButtonEnabled = value;
+                OnPropertyChanged("TranslateWordButtonEnabled");
+            }
+        }
 
 
         public RelayCommand CheckResult
@@ -146,7 +179,8 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 (_checkResult = new RelayCommand(obj =>
                  {
                      string result = obj as string;
-                     if(result == _translate)
+                     Waiting = false;
+                     if (result == _translate)
                      {
                          RightResult();
                      }
@@ -164,41 +198,75 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                      _owner.BackAndClean();
                  }));
         }
+        public RelayCommand TranslateWordButton
+        {
+            get
+            {
+                return _translateWordButton ??
+                    ( _translateWordButton = new RelayCommand(obj =>
+                     {
+                         if(AmountCoins >= TranslateWordCost )
+                         {
+                             _usingHelp = true;
+                             Word = _translate;
+                             _user.Information.GetCoins.Subtract(TranslateWordCost);
+                             TranslateWordButtonEnabled = false;
+                             OnPropertyChanged("AmountCoins");
+                         }
+                     }) );
+            }
+        }
+        public RelayCommand ListenWord
+        {
+            get
+            {
+                return _listenWord ??
+                    ( _listenWord = new RelayCommand(obj =>
+                     {
+                         SpeechSynth.Speech(Word, AudioValue);
+                     }) );
+            }
+        }
 
 
         private void WrongResult()
         {
-            UpdateStatistics(false);
+            OutputResult = _owner.WrongOutput();
+            TimerVisibility = Visibility.Visible;
+            
+            OutputForeground = new SolidColorBrush(Colors.Red);
+
+            _oneSessionStatistics.AddAmountErrors();
+            _rightWordPair.AddAmountErrors();
+            _user.Statistics.AddWrongs(1);
+
+            _owner.StartTimerToNextTest();
         }
         private void RightResult()
         {
-            Waiting = false;
-            RightOutput = _owner.RightOutput();
+            OutputResult = _owner.RightOutput();
             TimerVisibility = Visibility.Visible;
-            UpdateStatistics(true);
-            GoToTheNextTest();
-        }
-        private void UpdateStatistics(bool result)
-        {
-            if(result)
+
+            if(!_usingHelp )
             {
-                _rightWordPair.AmountRepetiotion++;
-                _oneSessionStatistics.UpdateOneWordStatistic(_rightWordPair);
-                _oneSessionStatistics.AddExp(_rightWordPair);
+                _user.Statistics.AddExpForRightWord(Word, _translate);
+                _user.Information.GetCoins.Add(CoinsForRightResult);
             }
-            else
-            {
-                _oneSessionStatistics.AddAmountErrors();
-                _rightWordPair.AmountErrors++;
-            }
+            _rightWordPair.AddAmountRepetition();
+            _user.Statistics.AddRepitedWords(1);
+            _oneSessionStatistics.UpdateOneWordStatistic(_rightWordPair);
+            _oneSessionStatistics.AddExp(_user.Statistics.ExpFormula(Word, _translate));
             
+
+            OutputForeground = new SolidColorBrush(Colors.Green);
+            _owner.StartTimerToNextTest();
         }
         private void UpdateTest()
         {
             OneCollection _currentCollection = Test.SetRandomCurrentCollection(_collections);
             List<OneWordPair> WordPairs = Test.GetWordPairs(AmointButtons, _currentCollection);
             _rightWordPair = Test.GetRandomAnswer(WordPairs);
-            if (_settings.FullTest && Test.GetSwap())
+            if (_user.Information.FullTest && Test.GetSwap())
             {
                 _word = _rightWordPair.Word;
                 _translate = _rightWordPair.Translation;
@@ -243,23 +311,6 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                 words.Add(pairs[i].Word);
             }
             return words;
-        }
-        private void GoToTheNextTest()
-        {
-            Timer = _secondsToNextTest;
-            _timer = new DispatcherTimer();
-            _timer.Tick += new EventHandler(TimerTick);
-            _timer.Interval = new TimeSpan(0, 0, 1);
-            _timer.Start();
-        }
-        private void TimerTick(object sender, EventArgs e)
-        {
-            Timer--;
-            if ( Timer < 0 )
-            {
-                _timer.Stop();
-                _owner.NextTest();
-            }
         }
     }
 }

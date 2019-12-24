@@ -33,7 +33,7 @@
                     <StackPanel>
                         <TextBlock Text="{x:Static res:Resources.ChangeName}" Style="{StaticResource Settings}"/>
                         <TextBox DataContext="{Binding GetSettings}" Text="{Binding Name}"
-                                 MaxWidth="400" FontSize="20" HorizontalContentAlignment="Center"/>
+                                 MaxWidth="400" FontSize="20" HorizontalContentAlignment="Center" Style="{StaticResource TextBox}"/>
                     </StackPanel>
                     <StackPanel >
                         <TextBlock Text="{x:Static res:Resources.DeleteAllCollections}" Style="{StaticResource ResourceKey=Settings}"
@@ -102,6 +102,19 @@
                             <CheckBox IsChecked="{Binding FullTest, UpdateSourceTrigger=PropertyChanged}" Margin="22, 22, 0, 0"/>
                         </StackPanel>
                     </Grid>
+                    <Grid DataContext="{Binding GetSettings}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Static res:Resources.ValumeDescription}" Style="{StaticResource Settings}" Grid.Column="0"
+                                   Margin="10"/>
+                        <TextBlock Text="{Binding AudioValue}" Style="{StaticResource Settings}" Grid.Column="1" Margin="10" HorizontalAlignment="Right"/>
+                        <Slider Value="{Binding AudioValue, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100" Grid.Column="2" Margin="10" VerticalAlignment="Center"/>
+                        <TextBlock Text="100" Style="{StaticResource Settings}" Grid.Column="3" Margin="10" HorizontalAlignment="Left"/>
+                    </Grid>
                     <StackPanel Background="{StaticResource PagePoints}" Margin="0, 20, 0, 10">
                         <TextBlock Text="{x:Static res:Resources.Enternet}" Style="{StaticResource SettingTitle}"/>
                     </StackPanel>
@@ -120,6 +133,7 @@
                     <Button Content="{x:Static res:Resources.FullHelp}" Style="{StaticResource Button}" Margin="5"/>
                     <Button Content="{x:Static res:Resources.RepitStartWindow}" Style="{StaticResource Button}" Margin="5"/>
                     <Button Content="{x:Static res:Resources.About}" Style="{StaticResource Button}" Margin="5"/>
+                   
                 </StackPanel>
             </Grid>
         </ScrollViewer>

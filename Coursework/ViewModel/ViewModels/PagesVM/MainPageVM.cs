@@ -6,8 +6,6 @@ using Coursework.Models.Classes.Commands;
 using Coursework.Models.Classes.User.WordCollections;
 using Coursework.ViewModel.ViewModels.PagesVM.Tests.TestsManager;
 using Coursework.Models.Classes.User.Statistics;
-using Coursework.ViewModel.ViewModels.PagesVM.Notification;
-using Coursework.Views.Notification;
 using Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings;
 
 namespace Coursework.ViewModel.ViewModels.PagesVM
@@ -20,6 +18,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
         private RelayCommand _editCollectionCommand;
         private RelayCommand _goToTest;
         private RelayCommand _settingsCommand;
+        private RelayCommand _goToStatistics;
         private OneCollection _selectedCollection;
 
         public MainPageVM(string viewModelName, NavigateManager manager, User user) : base(viewModelName, manager)
@@ -172,6 +171,17 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                      {
                          Manager.GoTo("Settings");
                      }));
+            }
+        }
+        public RelayCommand GoToStatistics
+        {
+            get
+            {
+                return _goToStatistics ??
+                    ( _goToStatistics = new RelayCommand(obj =>
+                     {
+                         Manager.CurrentViewModel = new StatisticsPage(Manager, _currentUser);
+                     }) );
             }
         }
 

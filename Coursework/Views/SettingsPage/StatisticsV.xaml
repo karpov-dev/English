@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Coursework.Views.SettingsPage.StatisticsV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res ="clr-namespace:Coursework.Properties"
+             xmlns:local="clr-namespace:Coursework.Views.SettingsPage"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <Grid Background="{StaticResource SecondMainBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{x:Static res:Resources.Statistics}" Style="{StaticResource PageTitleStyle}" Grid.Row="0"/>
+        <Grid Grid.Row="1" Background="{StaticResource PageTitle}">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding UserCollections}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Background="{StaticResource PagePoints}" Margin="10">
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource SettingTitle}"/>
+                                <TextBlock Text="{Binding Description}" Style="{StaticResource SettingsDescription}"/>
+                                <Grid Background="{StaticResource SecondMainBackground}" Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{x:Static res:Resources.AmountErrors}" Style="{StaticResource SettingsDescription}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding AmountWrongs}" Style="{StaticResource SettingsDescription}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{x:Static res:Resources.AmountRepitedWords}" Style="{StaticResource SettingsDescription}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding AmountRepetition}" Style="{StaticResource SettingsDescription}"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Expander>
+                                    <Expander.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{x:Static res:Resources.CollectionContains}" />
+                                            <TextBlock Text="{Binding AmountWords}"/>
+                                            <TextBlock Text="{x:Static res:Resources.Words}"/>
+                                        </StackPanel>
+                                    </Expander.Header>
+                                    <StackPanel>
+                                        <ItemsControl ItemsSource="{Binding WordPair}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackPanel Grid.Column="0" Orientation="Horizontal" Width="800">
+                                                            <TextBlock Text="{Binding Word}" Style="{StaticResource SettingsDescription}" Width="400"/>
+                                                            <TextBlock Text="{Binding Translation}" Style="{StaticResource SettingsDescription}" Width="400"/>
+                                                        </StackPanel>
+                                                        <StackPanel Grid.Column="1" Orientation="Horizontal" Width="300">
+                                                            <TextBlock Text="{x:Static res:Resources.AmountWordPairRepetition}" Style="{StaticResource SettingsDescription}"/>
+                                                            <TextBlock Text="{Binding AmountRepetiotion}" Style="{StaticResource SettingsDescription}"/>
+                                                        </StackPanel>
+                                                        <StackPanel Grid.Column="2" Orientation="Horizontal" Width="300">
+                                                            <TextBlock Text="{x:Static res:Resources.AmountWordPairWrongs}" Style="{StaticResource SettingsDescription}"/>
+                                                            <TextBlock Text="{Binding AmountErrors}" Style="{StaticResource SettingsDescription}"/>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </Expander>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+        <Button Content="{x:Static res:Resources.Cancel}" Style="{StaticResource Button}" 
+                Command="{Binding BackButton}" Grid.Row="2"/>
+    </Grid>
+</UserControl>

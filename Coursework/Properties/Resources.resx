@@ -166,6 +166,12 @@
   <data name="AmountTime" xml:space="preserve">
     <value>Затраченное время </value>
   </data>
+  <data name="AmountWordPairRepetition" xml:space="preserve">
+    <value>Повторено: </value>
+  </data>
+  <data name="AmountWordPairWrongs" xml:space="preserve">
+    <value>Совершено ошибок:</value>
+  </data>
   <data name="AmountWrongsInTest" xml:space="preserve">
     <value>Количество ошибок </value>
   </data>
@@ -175,6 +181,9 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Название приложения </value>
   </data>
+  <data name="Audio" xml:space="preserve">
+    <value>Озвучивание</value>
+  </data>
   <data name="BasicInformationTextBlok" xml:space="preserve">
     <value>Основная информация</value>
   </data>
@@ -183,6 +192,12 @@
   </data>
   <data name="CancelWithFullFields" xml:space="preserve">
     <value>У вас остались заполненные поля. Вы действительно хотите выйти?</value>
+  </data>
+  <data name="CardsType" xml:space="preserve">
+    <value>Карточки</value>
+  </data>
+  <data name="CardsTypeDescription" xml:space="preserve">
+    <value>Вам буду показыватсья карточки, а вы будете отвечать, вспомнили ли вы перевод. За тест начисляется только опыт</value>
   </data>
   <data name="ChangeName" xml:space="preserve">
     <value>Изменить имя</value>
@@ -198,6 +213,15 @@
   </data>
   <data name="CleanAllWordPairs" xml:space="preserve">
     <value>Удалить все слова</value>
+  </data>
+  <data name="coins" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CoinsText" xml:space="preserve">
+    <value>монет</value>
+  </data>
+  <data name="CollectionContains" xml:space="preserve">
+    <value>Коллекция содержит </value>
   </data>
   <data name="CollectionDescription" xml:space="preserve">
     <value>Описание подборки</value>
@@ -250,6 +274,9 @@
   <data name="Development" xml:space="preserve">
     <value>Разработка</value>
   </data>
+  <data name="DontKnow" xml:space="preserve">
+    <value>Не помню</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
@@ -273,6 +300,9 @@
   </data>
   <data name="ExitButton" xml:space="preserve">
     <value>Выход</value>
+  </data>
+  <data name="exp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="expeditioner" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\expeditioner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,6 +334,9 @@
   <data name="GameModeButton" xml:space="preserve">
     <value>Игровой режим</value>
   </data>
+  <data name="GetTranslate" xml:space="preserve">
+    <value>Перевести</value>
+  </data>
   <data name="GiveTranslation" xml:space="preserve">
     <value>Предалагать перевод во время добавления коллекции</value>
   </data>
@@ -328,11 +361,20 @@
   <data name="KeepItUp" xml:space="preserve">
     <value>Так держать!</value>
   </data>
+  <data name="Know" xml:space="preserve">
+    <value>Помню</value>
+  </data>
   <data name="LearningButton" xml:space="preserve">
     <value>Учить слова</value>
   </data>
+  <data name="left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Level" xml:space="preserve">
     <value>Уровень</value>
+  </data>
+  <data name="ListenWord" xml:space="preserve">
+    <value>Прослушать</value>
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Меню</value>
@@ -391,6 +433,9 @@
   <data name="ResetSettingsDescription" xml:space="preserve">
     <value>Устанавливает настройки по умолчанию. Прогресс и подборки останутся </value>
   </data>
+  <data name="right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SaveButton" xml:space="preserve">
     <value>Сохранить</value>
   </data>
@@ -430,6 +475,9 @@
   <data name="SpellingTypeDescription" xml:space="preserve">
     <value>Вам будет давно слово. Необходимо правильно написать его перевод </value>
   </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
   <data name="TestSettings" xml:space="preserve">
     <value>Тесты </value>
   </data>
@@ -460,6 +508,9 @@
   <data name="UserWithoutCollections" xml:space="preserve">
     <value>У вас нет ни одной коллекции. Добавьте свою первую коллекцию и возвращайтесь опять</value>
   </data>
+  <data name="ValumeDescription" xml:space="preserve">
+    <value>Громкость озвучивания</value>
+  </data>
   <data name="VeryGood" xml:space="preserve">
     <value>Превосходно!</value>
   </data>
@@ -475,11 +526,23 @@
   <data name="Word" xml:space="preserve">
     <value>Слово</value>
   </data>
+  <data name="WordPairLerned" xml:space="preserve">
+    <value>Изучено: </value>
+  </data>
+  <data name="Words" xml:space="preserve">
+    <value> слов</value>
+  </data>
   <data name="WordsType" xml:space="preserve">
     <value>С вариантами ответа </value>
   </data>
   <data name="WordsTypeDescription" xml:space="preserve">
     <value>Вам будет дано слово и четыре варианта ответа, один из которых будет правильный</value>
+  </data>
+  <data name="WrongsType" xml:space="preserve">
+    <value>Работа над ошибками</value>
+  </data>
+  <data name="WrongsTypeDescription" xml:space="preserve">
+    <value>Данный тест содержит слова на которых вы часто ошибались</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Да</value>

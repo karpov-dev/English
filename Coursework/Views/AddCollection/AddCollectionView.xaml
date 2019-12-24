@@ -47,9 +47,9 @@
         <StackPanel Grid.Column="0" Grid.Row="1">
             <TextBlock Text="{x:Static res:Resources.BasicInformationTextBlok}" FontSize="35"/>
             <TextBlock Text="{x:Static res:Resources.CollectionName}" FontSize="20"/>
-            <TextBox Text="{Binding TitleWordCollectionBox}"/>
+            <TextBox Text="{Binding TitleWordCollectionBox}" Style="{StaticResource TextBox}"/>
             <TextBlock Text="{x:Static res:Resources.CollectionDescription}"/>
-            <TextBox Text="{Binding DescriptionBox}"/>
+            <TextBox Text="{Binding DescriptionBox}" Style="{StaticResource TextBox}"/>
             <CheckBox Content="{x:Static res:Resources.ActiveCollection}" IsChecked="{Binding IsCheckedBox}" Margin="20,5,20,5"/>
             <CheckBox Content="{x:Static res:Resources.GiveTranslation}"  IsChecked="{Binding OnlineTranslation}" 
                       IsEnabled="{Binding OnlineTranslationAvailable}" Margin="20,5,20,5"/>

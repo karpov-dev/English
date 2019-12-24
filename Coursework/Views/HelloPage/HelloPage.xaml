@@ -40,7 +40,7 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" VerticalAlignment="Center">
                 <TextBlock Text="{x:Static res:Resources.WhatIsYourName}" Foreground="{StaticResource TextColor}"/>
-                <TextBox Text="{Binding UserName}" Width="300" FontSize="20" MaxLength="10"/>
+                <TextBox Text="{Binding UserName}" Style="{StaticResource TextBox}" MaxWidth="400"/>
                 <Button Content="{x:Static res:Resources.Next}" Command="{Binding NextCommand}" Width="120" Style="{StaticResource Button}"/>
             </StackPanel>
         </Grid>

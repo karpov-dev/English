@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.104.9\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Polly, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Polly.3.3.103.27\lib\net45\AWSSDK.Polly.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -66,6 +72,7 @@
     <Compile Include="Models\Classes\Test\OneSessionStatistics.cs" />
     <Compile Include="Models\Classes\User\Achievements\Achievements.cs" />
     <Compile Include="Models\Classes\User\Achievements\OneAchievement.cs" />
+    <Compile Include="Models\Classes\User\Information\Coins.cs" />
     <Compile Include="Models\Classes\User\Information\Settings.cs" />
     <Compile Include="Models\Classes\User\WordCollections\OneCollection.cs" />
     <Compile Include="Models\Classes\User\Statistics\StatisticsForTheDay.cs" />
@@ -73,6 +80,7 @@
     <Compile Include="Models\Classes\User\WordCollections\WordPair\OneWordPair.cs" />
     <Compile Include="Models\Classes\User\WordCollections\WordCollection.cs" />
     <Compile Include="Models\Classes\User\WordCollections\Translator.cs" />
+    <Compile Include="Models\Classes\User\WordCollections\WordPair\SpeechSynth.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,12 +92,13 @@
     <Compile Include="ViewModel\ViewModels\PagesVM\Develop\TestReactions.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\EditCollectionPageVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\HelloPageVM.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Notification\NotificationWindow.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\StatisticsPage.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\SessionResultPage.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestsManager\TestManager.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\CardsType.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\OptionType.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\SpellingType.cs" />
-    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\TestTypes\Test.cs" />
+    <Compile Include="ViewModel\ViewModels\PagesVM\Tests\Test.cs" />
     <Compile Include="ViewModel\ViewModels\VM\ReactionVM.cs" />
     <Compile Include="ViewModel\ViewModels\VM\TranslatePairVM.cs" />
     <Compile Include="ViewModel\ViewModels\PagesVM\MainPageVM.cs" />
@@ -107,6 +116,9 @@
     <Compile Include="Views\EditCollection\EditCollection.xaml.cs">
       <DependentUpon>EditCollection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Elements\TestInfoBar.xaml.cs">
+      <DependentUpon>TestInfoBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HelloPage\HelloPage.xaml.cs">
       <DependentUpon>HelloPage.xaml</DependentUpon>
     </Compile>
@@ -117,14 +129,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\Notification\Notification.xaml.cs">
-      <DependentUpon>Notification.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\SettingsPage\SettingsV.xaml.cs">
       <DependentUpon>SettingsV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SettingsPage\StatisticsV.xaml.cs">
+      <DependentUpon>StatisticsV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tests\CardType.xaml.cs">
+      <DependentUpon>CardType.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Tests\OptionTypePage.xaml.cs">
       <DependentUpon>OptionTypePage.xaml</DependentUpon>
@@ -154,6 +169,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Elements\TestInfoBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HelloPage\HelloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,15 +181,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Notification\Notification.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\SettingsPage\SettingsV.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SettingsPage\StatisticsV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Tests\CardType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,6 +256,20 @@
   <ItemGroup>
     <Resource Include="Resources\mountaineer.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\exp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.Polly.3.3.103.27\analyzers\dotnet\cs\AWSSDK.Polly.CodeAnalysis.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\right.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

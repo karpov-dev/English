@@ -59,6 +59,15 @@
         <DataTemplate DataType="{x:Type develop:TestReactions}">
             <developV:EditReactions/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TestTypes:CardsType}">
+            <TestV:CardType/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type page:StatisticsPage}">
+            <settingsV:StatisticsV/>
+        </DataTemplate>
+        
     </Window.Resources>
     <ContentControl Content="{Binding CurrentViewModel}"/>
 

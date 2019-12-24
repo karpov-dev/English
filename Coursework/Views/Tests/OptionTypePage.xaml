@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:res="clr-namespace:Coursework.Properties"
+             xmlns:elements="clr-namespace:Coursework.Views.Elements"
              xmlns:local="clr-namespace:Coursework.Views.Tests"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
@@ -21,7 +22,9 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource SecondMainBackground}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
@@ -29,22 +32,46 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <DockPanel HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                <TextBlock Text="{Binding Word}" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <elements:TestInfoBar/>
             </DockPanel>
-            <DockPanel Visibility="{Binding TimerVisibility}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0"
+            <DockPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="{Binding Word}" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           TextWrapping="Wrap"/>
+            </DockPanel>
+            <DockPanel Visibility="{Binding TimerVisibility}" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0"
                        Grid.ColumnSpan="2">
-                <TextBlock Text="{Binding RightOutput}" HorizontalAlignment="Center" FontSize="20" Foreground="ForestGreen"
-                               Margin="10" FontStyle="Italic" DockPanel.Dock="Top"/>
+                <TextBlock Text="{Binding OutputResult}" HorizontalAlignment="Center" FontSize="20"
+                               Margin="10" FontStyle="Italic" DockPanel.Dock="Top" Foreground="{Binding OutputForeground}"/>
                 <TextBlock Text="{x:Static res:Resources.ForNextTestSeconds}" DockPanel.Dock="Left"
                                FontStyle="Oblique"/>
                 <TextBlock Text=" "/>
-                <TextBlock Text="{Binding Timer}" DockPanel.Dock="Left" FontStyle="Oblique"/>
+                <TextBlock DataContext="{Binding GetOwner}" Text="{Binding TimerValue}" DockPanel.Dock="Left" FontStyle="Oblique"/>
                 <TextBlock Text=" "/>
                 <TextBlock Text="{x:Static res:Resources.Seconds}" DockPanel.Dock="Left"
                                FontStyle="Oblique"/>
             </DockPanel>
-            <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" IsEnabled="{Binding Waiting}">
+            <Grid IsEnabled="{Binding Waiting}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Style="{StaticResource Button}" 
+                    Margin="5" Command="{Binding TranslateWordButton}" IsEnabled="{Binding TranslateWordButtonEnabled}">
+                    <Button.Content>
+                        <DockPanel>
+                            <TextBlock Text="{x:Static res:Resources.Translation}" Margin="5"/>
+                            <TextBlock Text=" (" Margin="5"/>
+                            <Image Source="pack://application:,,,/Resources/coins.png" Width="20" Height="20" Margin="5"/>
+                            <TextBlock Text="{Binding TranslateWordCost}" Margin="5"/>
+                            <TextBlock Text=")" Margin="5"/>
+                        </DockPanel>
+                    </Button.Content>
+                </Button>
+                <Button Content="{x:Static res:Resources.ListenWord}" Style="{StaticResource Button}" Grid.Column="1"
+                    Margin="5" Command="{Binding ListenWord}" />
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" IsEnabled="{Binding Waiting}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -63,8 +90,9 @@
                         Grid.Row="1" Grid.Column="1" Style="{StaticResource Button}"/>
             </Grid>
         </Grid>
-        <Button Content="{x:Static res:Resources.ExitButton}" Command="{Binding BackButton}"
-                Grid.Row="2" Grid.Column="0" MaxHeight="60" VerticalAlignment="Bottom" Style="{StaticResource Button}"/>
+        <Button Content="{x:Static res:Resources.ExitButton}" Command="{Binding BackButton}" Grid.ColumnSpan="3"
+                Grid.Row="2" Grid.Column="0" MaxHeight="60" VerticalAlignment="Bottom" Style="{StaticResource Button}"
+                IsEnabled="{Binding Waiting}"/>
     </Grid>
     
 </UserControl>

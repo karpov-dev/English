@@ -46,5 +46,29 @@ namespace Coursework.Models.Classes.User.WordCollections
         }
         public ObservableCollection<OneWordPair> WordPair { get; set; }
         public int AmountWords => WordPair.Count;
+        public int AmountWrongs
+        {
+            get
+            {
+                int wrongs = 0;
+                for(int i = 0; i < WordPair.Count; i++ )
+                {
+                    wrongs += WordPair[i].AmountErrors;
+                }
+                return wrongs;
+            }
+        }
+        public int AmountRepetition
+        {
+            get
+            {
+                int repetition = 0;
+                for(int i = 0; i < WordPair.Count; i++ )
+                {
+                    repetition += WordPair[i].AmountRepetiotion;
+                }
+                return repetition;
+            }
+        }
     }
 }

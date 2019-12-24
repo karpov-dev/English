@@ -99,6 +99,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                             addingCollection.Description = DescriptionBox;
                             addingCollection.IsChecked = IsCheckedBox;
                             CopyWordPairs(addingCollection);
+                            Manager.CurrentUser.Statistics.AddAddedWords(WordPairsCollection.Count);
                             _userWordCollection.AddCollection(addingCollection);
                             Manager.GoTo("MainPageVM");
                         }
@@ -138,6 +139,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM
                         {
 
                         }
+                        
                     }));
             }
         }

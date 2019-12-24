@@ -21,16 +21,9 @@ namespace Coursework.Models.Classes.Test
                 RepitedWords++;
             }
         }
-        public void AddExp(OneWordPair word)
+        public void AddExp(int exp)
         {
-            if(word.Learned == true)
-            {
-                TotalExp += ( ( word.Translation.Length + word.Word.Length ) * 2 );
-            }
-            else
-            {
-                TotalExp += word.Translation.Length + word.Word.Length;
-            }
+            TotalExp += exp;
         }
         public void AddAmountErrors()
         {

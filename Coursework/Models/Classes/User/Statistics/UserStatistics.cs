@@ -147,6 +147,8 @@ namespace Coursework.Models.Classes.User.Statistics
         {
             _daysStatistics[_currentDayIndex].AddWrongWords(amount);
         }
+        public void AddExpForRightWord(string word, string translate) => AddExperience(ExpFormula(word, translate));
+        public int ExpFormula(string word, string translate) => word.Length + translate.Length;
 
 
         public void ClearStatistics()

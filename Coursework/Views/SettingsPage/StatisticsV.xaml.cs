@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Coursework.Views.Notification
+namespace Coursework.Views.SettingsPage
 {
     /// <summary>
-    /// Логика взаимодействия для Notification.xaml
+    /// Логика взаимодействия для StatisticsV.xaml
     /// </summary>
-    public partial class Notification : Window
+    public partial class StatisticsV : UserControl
     {
-        public Notification()
+        public StatisticsV()
         {
             InitializeComponent();
         }

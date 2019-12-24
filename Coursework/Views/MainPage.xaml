@@ -44,12 +44,14 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="{x:Static res:Resources.LearningButton}"
+            <Button Grid.Column="0" Content="{x:Static res:Resources.Settings}" Command="{Binding Settings}" 
+                    Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="1" Content="{x:Static res:Resources.Statistics}" Style="{StaticResource MainMenuButton}"
+                    Command="{Binding GoToStatistics}"/>
+            <Button Grid.Column="2" Content="{x:Static res:Resources.LearningButton}" Grid.ColumnSpan="3"
                     Command="{Binding GoToTest}" Style="{StaticResource MainMenuButton}"/>
-            <Button Grid.Column="1" Content="{x:Static res:Resources.TheoryButton}" Style="{StaticResource MainMenuButton}"/>
-            <Button Grid.Column="2" Content="{x:Static res:Resources.GameModeButton}" Grid.ColumnSpan="3" Style="{StaticResource MainMenuButton}"/>
-            <Button Grid.Column="5" Content="{x:Static res:Resources.Settings}" Command="{Binding Settings}" Style="{StaticResource MainMenuButton}"/>
-            <Button Grid.Column="6" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}" Style="{StaticResource MainMenuButton}"/>
+            <Button Grid.Column="5" Content="{x:Static res:Resources.ExitButton}" Command="{Binding Exit}" Style="{StaticResource MainMenuButton}"
+                    Grid.ColumnSpan="2"/>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="0" Background="{StaticResource UserPanel}">
             <DockPanel HorizontalAlignment="Center">
@@ -135,42 +137,11 @@
             </ListBox>
         </Grid>
         <StackPanel Grid.Row="1" Grid.Column="3" Background="{StaticResource StatisticPanel}">
-            <StackPanel DataContext="{Binding CurrentDayStatistics}" Margin="20">
+            <StackPanel DataContext="{Binding CurrentDayStatistics}" Margin="20, 20, 20, 0">
                 <TextBlock Text="{x:Static res:Resources.ShotStatistics}" FontSize="25"/>
-                <TextBlock Text="{x:Static res:Resources.ForTheDay}" FontSize="22"/>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.TotalLernedWords}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding LearnedWords}"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.AmountRepitedWords}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding RepitedWords}"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.TotalAddedWords}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding AddedWords}"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.DayExp}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding Exp}"/>
-                </DockPanel>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.AmountErrors}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding WrongWords}"/>
-                </DockPanel>
             </StackPanel>
-            <StackPanel DataContext="{Binding TotalUserStatistic}" Margin="20">
+            <StackPanel DataContext="{Binding TotalUserStatistic}" Margin="20, 0, 20, 0">
                 <TextBlock Text="{x:Static res:Resources.ForAllTime}" FontSize="22"/>
-                <DockPanel HorizontalAlignment="Left">
-                    <TextBlock Text="{x:Static res:Resources.TotalLernedWords}"/>
-                    <TextBlock Text=":"/>
-                    <TextBlock Text="{Binding TotalLearnedWords}"/>
-                </DockPanel>
                 <DockPanel HorizontalAlignment="Left">
                     <TextBlock Text="{x:Static res:Resources.AmountRepitedWords}"/>
                     <TextBlock Text=":"/>

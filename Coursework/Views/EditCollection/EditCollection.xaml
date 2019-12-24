@@ -26,7 +26,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="0.9*"/>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -40,27 +40,24 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Background="{StaticResource PagePoints}">
-                <TextBlock Text="{x:Static res:Resources.CollectionName}"/>
-                <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" MaxWidth="300"/>
-                <TextBlock Text="{x:Static res:Resources.CollectionDescription}"/>
-                <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" MaxWidth="300"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <Button Content="{x:Static res:Resources.AddPair}" Command="{Binding AddNewWordPair}" Style="{StaticResource Button}"/>
-                        <TextBlock Text="{x:Static res:Resources.Word}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSeceltedWordPairs}"
-                                Style="{StaticResource Button}"/>
-                        <TextBlock Text="{x:Static res:Resources.Translation}"/>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
+
+            <Grid Grid.Row="0" Background="{StaticResource SecondMainBackground}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="{x:Static res:Resources.RemovePair}" Command="{Binding DeleteSeceltedWordPairs}"
+                            Style="{StaticResource Button}" Margin="5" VerticalAlignment="Bottom" Grid.Column="2"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="{x:Static res:Resources.CollectionName}"/>
+                    <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBox}"/>
+                    <TextBlock Text="{x:Static res:Resources.CollectionDescription}"/>
+                    <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBox}"/>
+                </StackPanel>
+                <Button Content="{x:Static res:Resources.AddPair}" Style="{StaticResource Button}" 
+                            Command="{Binding AddNewWordPair}" Margin="5" Grid.Column="0" VerticalAlignment="Bottom"/>
+            </Grid>
             <Grid Grid.Row="1" Background="{StaticResource CollectionsBackground}">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <StackPanel>

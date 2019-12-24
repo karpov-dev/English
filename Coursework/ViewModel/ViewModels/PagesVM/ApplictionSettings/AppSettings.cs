@@ -43,6 +43,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.ApplictionSettings
             }
         }
 
+
         public RelayCommand DeleteAllCollections
         {
             get

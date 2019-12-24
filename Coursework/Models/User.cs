@@ -12,6 +12,7 @@ namespace Coursework.Models
     class User
     {
         private const string _dataFileName = "data.bin";
+        private const string _settingsFileName = "settings.bin";
 
         public Settings Information;
         public UserStatistics Statistics;
@@ -51,6 +52,9 @@ namespace Coursework.Models
                 formatter.Serialize(stream, Statistics);
                 formatter.Serialize(stream, Achievements);
                 formatter.Serialize(stream, Collections);
+            }
+            using ( FileStream stream = File.Create(_settingsFileName) )
+            {
                 formatter.Serialize(stream, Information);
             }
         }
@@ -64,7 +68,13 @@ namespace Coursework.Models
                     Statistics = (UserStatistics) formatter.Deserialize(stream);
                     Achievements = (Achievements) formatter.Deserialize(stream);
                     Collections = (WordCollection) formatter.Deserialize(stream);
-                    Information = (Settings) formatter.Deserialize(stream);
+                }
+            }
+            if( File.Exists(_settingsFileName))
+            {
+                using ( FileStream stream = File.OpenRead(_settingsFileName) )
+                {
+                    Information = (Settings)formatter.Deserialize(stream);
                 }
             }
         }

@@ -41,7 +41,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
                         }
                     }
                 } while ( checkRepetition );
-                listOfWords.Add(wordPair.Clone() as OneWordPair);
+                listOfWords.Add(wordPair);
             }
             return listOfWords;
         }
@@ -49,7 +49,7 @@ namespace Coursework.ViewModel.ViewModels.PagesVM.Tests.TestTypes
         {
             OneWordPair RightAnswer;
             RightAnswer = wordPairs[GetRandomNumber(0, (wordPairs.Count - 1))];
-            return RightAnswer.Clone() as OneWordPair;
+            return RightAnswer;
         }
         static public bool GetSwap()
         {

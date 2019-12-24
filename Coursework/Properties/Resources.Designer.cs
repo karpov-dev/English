@@ -206,6 +206,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Повторено: .
+        /// </summary>
+        public static string AmountWordPairRepetition {
+            get {
+                return ResourceManager.GetString("AmountWordPairRepetition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Совершено ошибок:.
+        /// </summary>
+        public static string AmountWordPairWrongs {
+            get {
+                return ResourceManager.GetString("AmountWordPairWrongs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Количество ошибок .
         /// </summary>
         public static string AmountWrongsInTest {
@@ -233,6 +251,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Озвучивание.
+        /// </summary>
+        public static string Audio {
+            get {
+                return ResourceManager.GetString("Audio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Основная информация.
         /// </summary>
         public static string BasicInformationTextBlok {
@@ -256,6 +283,24 @@ namespace Coursework.Properties {
         public static string CancelWithFullFields {
             get {
                 return ResourceManager.GetString("CancelWithFullFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Карточки.
+        /// </summary>
+        public static string CardsType {
+            get {
+                return ResourceManager.GetString("CardsType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вам буду показыватсья карточки, а вы будете отвечать, вспомнили ли вы перевод. За тест начисляется только опыт.
+        /// </summary>
+        public static string CardsTypeDescription {
+            get {
+                return ResourceManager.GetString("CardsTypeDescription", resourceCulture);
             }
         }
         
@@ -301,6 +346,34 @@ namespace Coursework.Properties {
         public static string CleanAllWordPairs {
             get {
                 return ResourceManager.GetString("CleanAllWordPairs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap coins {
+            get {
+                object obj = ResourceManager.GetObject("coins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на монет.
+        /// </summary>
+        public static string CoinsText {
+            get {
+                return ResourceManager.GetString("CoinsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Коллекция содержит .
+        /// </summary>
+        public static string CollectionContains {
+            get {
+                return ResourceManager.GetString("CollectionContains", resourceCulture);
             }
         }
         
@@ -458,6 +531,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не помню.
+        /// </summary>
+        public static string DontKnow {
+            get {
+                return ResourceManager.GetString("DontKnow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Редактировать.
         /// </summary>
         public static string Edit {
@@ -526,6 +608,16 @@ namespace Coursework.Properties {
         public static string ExitButton {
             get {
                 return ResourceManager.GetString("ExitButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap exp {
+            get {
+                object obj = ResourceManager.GetObject("exp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -622,6 +714,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Перевести.
+        /// </summary>
+        public static string GetTranslate {
+            get {
+                return ResourceManager.GetString("GetTranslate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Предалагать перевод во время добавления коллекции.
         /// </summary>
         public static string GiveTranslation {
@@ -694,6 +795,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Помню.
+        /// </summary>
+        public static string Know {
+            get {
+                return ResourceManager.GetString("Know", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Учить слова.
         /// </summary>
         public static string LearningButton {
@@ -703,11 +813,30 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap left {
+            get {
+                object obj = ResourceManager.GetObject("left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Уровень.
         /// </summary>
         public static string Level {
             get {
                 return ResourceManager.GetString("Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Прослушать.
+        /// </summary>
+        public static string ListenWord {
+            get {
+                return ResourceManager.GetString("ListenWord", resourceCulture);
             }
         }
         
@@ -885,6 +1014,16 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap right {
+            get {
+                object obj = ResourceManager.GetObject("right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сохранить.
         /// </summary>
         public static string SaveButton {
@@ -1003,6 +1142,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Статистика.
+        /// </summary>
+        public static string Statistics {
+            get {
+                return ResourceManager.GetString("Statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Тесты .
         /// </summary>
         public static string TestSettings {
@@ -1093,6 +1241,15 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Громкость озвучивания.
+        /// </summary>
+        public static string ValumeDescription {
+            get {
+                return ResourceManager.GetString("ValumeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Превосходно!.
         /// </summary>
         public static string VeryGood {
@@ -1138,6 +1295,24 @@ namespace Coursework.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Изучено: .
+        /// </summary>
+        public static string WordPairLerned {
+            get {
+                return ResourceManager.GetString("WordPairLerned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на  слов.
+        /// </summary>
+        public static string Words {
+            get {
+                return ResourceManager.GetString("Words", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на С вариантами ответа .
         /// </summary>
         public static string WordsType {
@@ -1152,6 +1327,24 @@ namespace Coursework.Properties {
         public static string WordsTypeDescription {
             get {
                 return ResourceManager.GetString("WordsTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Работа над ошибками.
+        /// </summary>
+        public static string WrongsType {
+            get {
+                return ResourceManager.GetString("WrongsType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Данный тест содержит слова на которых вы часто ошибались.
+        /// </summary>
+        public static string WrongsTypeDescription {
+            get {
+                return ResourceManager.GetString("WrongsTypeDescription", resourceCulture);
             }
         }
         

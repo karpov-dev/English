@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="Coursework.Views.Tests.CardType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="clr-namespace:Coursework.Properties"
+             xmlns:elements="clr-namespace:Coursework.Views.Elements"
+             xmlns:local="clr-namespace:Coursework.Views.Tests"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+       
+    <Grid Background="{StaticResource SecondMainBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" Background="{StaticResource MainBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.4*"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <elements:TestInfoBar/>
+            </DockPanel>
+            <TextBlock Text="{Binding Word}" Style="{StaticResource SettingTitle}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Grid.Row="1" TextWrapping="Wrap"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Content="{x:Static res:Resources.Translation}" Style="{StaticResource Button}" Grid.Column="0" Grid.Row="0" 
+                        Command="{Binding TranslateWord}" Grid.ColumnSpan="2" Margin="5"/>
+                <Button Content="{x:Static res:Resources.DontKnow}" Style="{StaticResource Button}" Grid.Column="0" Grid.Row="1"
+                        Command="{Binding DontKnow}"/>
+                <Button Content="{x:Static res:Resources.Know}" Style="{StaticResource Button}" Grid.Column="1" Grid.Row="1"
+                        Command="{Binding Know}" />
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="pack://application:,,,/Resources/left.png" Width="100" Height="100" Margin="5"/>
+            <TextBlock Text="{x:Static res:Resources.DontKnow}" Style="{StaticResource SettingTitle}" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="pack://application:,,,/Resources/right.png" Width="100" Height="100" Margin="5"/>
+            <TextBlock Text="{x:Static res:Resources.Know}" Style="{StaticResource SettingTitle}" />
+        </StackPanel>
+        <Button Content="{x:Static res:Resources.Cancel}" Style="{StaticResource Button}" Grid.Column="0" Grid.Row="2"
+                Command="{Binding BackButton}" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+    </Grid>
+</UserControl>

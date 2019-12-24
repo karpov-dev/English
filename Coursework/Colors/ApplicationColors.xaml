@@ -14,6 +14,8 @@
     <SolidColorBrush x:Key="ButtonIsPressed" Color="#FFF59D"/>
     <SolidColorBrush x:Key="ButtonNotEnabled" Color="#C5E1A5"/>
 
+    <SolidColorBrush x:Key="TextBoxColor" Color="#B2EBF2"/>
+
     <SolidColorBrush x:Key="MainBackground" Color="#FFF59D"/>
     <SolidColorBrush x:Key="SecondMainBackground" Color="#E6EE9C"/>
     <SolidColorBrush x:Key="PageTitle" Color="#FFF59D"/>
@@ -24,6 +26,9 @@
 
     <SolidColorBrush x:Key="CollectionsBackground" Color="#E6EE9C"/>
     <SolidColorBrush x:Key="OneCollectionBackground" Color="#C5E1A5"/>
+
+    <SolidColorBrush x:Key="RightInput" Color="#76FF03"/>
+    <SolidColorBrush x:Key="WrongInput" Color="#d50000"/>
 
     <Style x:Key="ApplicationStyle">
         <Setter Property="Control.FontSize" Value="17"/>
@@ -61,7 +66,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}" BorderThickness="0">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -83,7 +88,7 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource ButtonIsMouseOver}"/>
-                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontSize" Value="20"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource ButtonIsMouseOver}"/>
@@ -134,4 +139,10 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
 
+    <Style x:Key="TextBox" TargetType="TextBox">
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Background" Value="{StaticResource TextBoxColor}"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    
 </ResourceDictionary>

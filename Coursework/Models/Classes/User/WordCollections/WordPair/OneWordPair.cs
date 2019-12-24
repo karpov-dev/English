@@ -40,20 +40,16 @@ namespace Coursework.Models.Classes.User.WordCollections.WordPair
         public int AmountRepetiotion
         {
             get => _amountRepetiotion;
-            set
+            private set
             {
                 _amountRepetiotion = value;
-                if(_amountRepetiotion == 5)
-                {
-                    Learned = true;
-                }
                 OnPropertyChanged("AmountRepetiotion");
             }
         }
         public int AmountErrors
         {
             get => _amountErrors;
-            set
+            private set
             {
                 _amountErrors = value;
                 OnPropertyChanged("AmountErrors");
@@ -62,11 +58,33 @@ namespace Coursework.Models.Classes.User.WordCollections.WordPair
         public bool Learned
         {
             get => _learned;
-            set
+            private set
             {
                 _learned = value;
                 OnPropertyChanged("Learned");
             }
+        }
+
+
+        public void AddAmountRepetition()
+        {
+            AmountRepetiotion++;
+            if(AmountRepetiotion > 10)
+            {
+                Learned = true;
+            }
+        }
+        public void AddAmountErrors()
+        {
+            AmountErrors++;
+        }
+        public void RightTest()
+        {
+            AddAmountRepetition();
+        }
+        public void WrongTest()
+        {
+            AddAmountErrors();
         }
 
         public object Clone()
